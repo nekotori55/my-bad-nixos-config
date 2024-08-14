@@ -39,6 +39,6 @@
   
   
   # HYPRLAND
-  programs.hyprland.enable = true;
+  programs.hyprland.enable = false;
   
 }

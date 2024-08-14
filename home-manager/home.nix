@@ -15,7 +15,7 @@
   programs.home-manager.enable = true;
   
   imports = [
-  	./hyprland.nix
+  	#./hyprland.nix
   	./gnome.nix
   ];
   
@@ -37,7 +37,6 @@
   	userEmail = "nekotori55@gmail.com";
   };
     
-
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
