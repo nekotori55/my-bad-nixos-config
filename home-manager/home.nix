@@ -16,6 +16,7 @@
   
   imports = [
   	#./hyprland.nix
+  	./dev.nix
   	./gnome.nix
   ];
   
@@ -37,6 +38,8 @@
   	userEmail = "nekotori55@gmail.com";
   };
     
+    
+	home.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

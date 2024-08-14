@@ -10,7 +10,7 @@
   # You can import other NixOS modules here
   imports = [
     ./hardware-configuration.nix
-    ./de.nix
+    ./de.nix  
   ];
 	
   nixpkgs = {
