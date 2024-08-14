@@ -10,6 +10,11 @@
 		[
 			# Themes
 			dracula-theme.theme-dracula
+			
+			# Go
+			golang.go
+			
+			
 		];
 	};
 }
