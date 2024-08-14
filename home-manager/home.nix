@@ -20,11 +20,13 @@
   ];
   
   
-
 	home.packages = with pkgs; [
 		neofetch
 		cowsay
 		firefox
+		
+		telegram-desktop
+		vesktop
 	];
 
   programs.firefox.enable = true;
@@ -35,8 +37,6 @@
   	userEmail = "nekotori55@gmail.com";
   };
     
-
-
 
 
   # Nicely reload system units when changing configs
