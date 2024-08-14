@@ -78,6 +78,31 @@
   # BLUETOOTH
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
+
+  hardware.bluetooth.hsphfpd.enable = false;
+
+  hardware.pulseaudio.enable = false;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    # If you want to use JACK applications, uncomment this
+    #jack.enable = true;
+    wireplumber.extraConfig = {
+      "override.monitor.bluez.properties" = {
+        "bluez5.enable-msbc" = false;
+        "bluez5.hfphsp-backend" = "none";
+        "bluez5.a2dp.ldac.quality" = "hq";
+        "bluez5.roles" = [
+          "a2dp_sink"
+          "a2dp_source"
+        ];
+      };
+    };
+    #wireplumber.settings = {bluetooth.autoswitch-to-headset-profile = false;};
+  };
+
   
   
   #####################################################################################
