@@ -10,7 +10,8 @@
   # You can import other NixOS modules here
   imports = [
     ./hardware-configuration.nix
-    ./de.nix  
+    ./desktop-environments.nix
+    ./nvidia.nix
   ];
 	
   nixpkgs = {
@@ -73,6 +74,16 @@
      extraGroups = ["wheel"];
    };
   };
+
+  fonts.packages = with pkgs; [
+    fira-code
+    fira-code-symbols
+    corefonts
+    vistafonts
+  ];
+
+  fonts.enableDefaultPackages = true;
+
   
   
   # BLUETOOTH
