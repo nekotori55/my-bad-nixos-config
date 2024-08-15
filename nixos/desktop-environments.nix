@@ -41,6 +41,6 @@
   
   
   # HYPRLAND
-  programs.hyprland.enable = false;
+  programs.hyprland.enable = true;
   
 }

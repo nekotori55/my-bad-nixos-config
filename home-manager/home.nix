@@ -28,6 +28,8 @@
 		
 		telegram-desktop
 		vesktop
+		
+		spotify
 	];
 
 

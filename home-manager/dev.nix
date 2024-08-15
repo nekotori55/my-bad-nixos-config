@@ -1,28 +1,31 @@
+{	pkgs,	... }:
+
+let	
+	vscodeExtensions = import ./vscode-extensions.nix { pkgs = pkgs; };		
+in
 {
-	pkgs,
-	...
-}:{
 	programs.vscode = {
 		enable = true;
+		#package = pkgs.vscode;
 		
-		
-		extensions = with pkgs.vscode-extensions; 
-		[
-			# Themes
-			dracula-theme.theme-dracula
-			
-			# Go
-			golang.go
-			
-			# Python
-			ms-python.python
-			ms-python.debugpy
-		];
+		extensions = vscodeExtensions;
 	};
+
 	
+	programs = {
+    direnv = {
+      enable = true;
+      enableBashIntegration = true; 
+      nix-direnv.enable = true;
+    };
+
+    bash = {
+    	enable = true; # allow homemanager to manage shell
+    };
+  };
 	
+
 	home.packages = with pkgs; [
-    direnv
     
     # Self-explanatory
 		docker-compose 
