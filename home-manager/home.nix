@@ -39,10 +39,12 @@
   	userEmail = "nekotori55@gmail.com";
   };
     
+
     
 	home.sessionVariables.NIXOS_OZONE_WL = "1";
 	home.sessionVariables.EDITOR = "gnome-text-editor";
-
+	
+	
   
 
   # Nicely reload system units when changing configs

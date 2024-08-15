@@ -9,7 +9,7 @@
 	services.xserver.videoDrivers = ["nvidia"];
 
 	environment.systemPackages = with pkgs; [
-			lshw #  sudo lshw -c display    # to check bus id's
+			#lshw #  sudo lshw -c display    # to check bus id's
 	];
 
 	hardware.nvidia = {
@@ -55,6 +55,9 @@
   	    prime.offload.enable = lib.mkForce true;
   	    prime.offload.enableOffloadCmd = lib.mkForce true;
   	    prime.sync.enable = lib.mkForce false;
+  	    
+  	    powerManagement.enable = lib.mkForce true; # disable if artefacts
+				powerManagement.finegrained = lib.mkForce true; # works on turing or newer (should check)
   	  };
   	};
 	};

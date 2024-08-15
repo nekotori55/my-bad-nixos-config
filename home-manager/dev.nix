@@ -14,7 +14,17 @@
 			# Go
 			golang.go
 			
-			
+			# Python
+			ms-python.python
+			ms-python.debugpy
 		];
 	};
+	
+	
+	home.packages = with pkgs; [
+    direnv
+    
+    # Self-explanatory
+		docker-compose 
+  ];
 }
