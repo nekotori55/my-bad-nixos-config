@@ -1,7 +1,7 @@
 {	pkgs,	... }:
 
 let	
-	vscodeExtensions = import ./vscode-extensions.nix { pkgs = pkgs; };		
+	vscodeExtensions = import ./vscode-default-extensions.nix { pkgs = pkgs; };		
 in
 {
 	programs.vscode = {
