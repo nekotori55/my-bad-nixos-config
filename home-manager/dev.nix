@@ -1,5 +1,9 @@
 { pkgs, ... }:
 {
+  imports = [
+    ./vscode.nix
+  ];
+
   programs = {
     bash = {
       enable = true; # allow homemanager to manage shell
@@ -10,16 +14,24 @@
       enableBashIntegration = true;
       nix-direnv.enable = true;
     };
+
+    git = {
+      enable = true;
+      userName = "Nekotori";
+      userEmail = "nekotori55@gmail.com";
+
+      ignores = [
+        ".envrc"
+        ".direnv/**"
+      ];
+    };
   };
 
-  imports = [
-    ./vscode.nix
-  ];
-
+  
   home.packages = with pkgs; [
     docker-compose
     nixd
     nixpkgs-fmt
+    gitkraken
   ];
-
 }

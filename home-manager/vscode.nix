@@ -36,6 +36,8 @@ let
           };
         };
       };
+
+      "workbench.colorTheme" = "Dracula";
     };
 in
 {

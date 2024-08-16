@@ -1,8 +1,6 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{ config
-, pkgs
-, lib
+{ pkgs
 , ...
 }: {
 
@@ -34,17 +32,9 @@
 
   programs.firefox.enable = true;
 
-  programs.git = {
-    enable = true;
-    userName = "Nekotori";
-    userEmail = "nekotori55@gmail.com";
-  };
-
-
 
   home.sessionVariables.NIXOS_OZONE_WL = "1";
-  home.sessionVariables.EDITOR = "gnome-text-editor";
-
+  home.sessionVariables.EDITOR = "vim";
 
 
 
