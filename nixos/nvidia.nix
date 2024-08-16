@@ -20,7 +20,7 @@
     wgpu-utils
     mesa
     libglvnd
-    nvtop
+    nvtopPackages.full
     nvitop
     libGL
   ];

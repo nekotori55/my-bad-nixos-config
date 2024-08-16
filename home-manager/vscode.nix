@@ -19,19 +19,35 @@ let
       mkhl.direnv
       bbenoist.nix
     ];
+
+
+  settings =
+    {
+      "nix.enableLanguageServer" = true;
+      "nix.serverPath" = "nixd";
+      "nix.serverSettings" = {
+        "nixd" = {
+          "formatting" = {
+            "command" = "nixpkgs-fmt";
+          };
+
+          "options" = {
+            "enable" = true;
+          };
+        };
+      };
+    };
 in
 {
-  nixpkgs = {
-    config = {
-      #      allowUnfree = true;
-      #allowUnfreePredicate = (_: true);
-    };
-  };
-
-
   programs.vscode = {
     enable = true;
+    enableUpdateCheck = false;
+    enableExtensionUpdateCheck = false;
+    mutableExtensionsDir = false;
     #package = pkgs.vscodium; # uncomment for vscodium
+
+
     extensions = vscodeExtensions;
+    userSettings = settings;
   };
 }
