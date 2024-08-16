@@ -1,9 +1,6 @@
 # This is your system's configuration file.
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
-{ inputs
-, lib
-, config
-, pkgs
+{ pkgs
 , ...
 }: {
   # You can import other NixOS modules here
@@ -19,15 +16,7 @@
     };
   };
 
-  nix =
-    let
-      flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
-    in
-    {
-      settings = {
-        experimental-features = "nix-command flakes";
-      };
-    };
+  nix.settings.experimental-features = "nix-command flakes";
 
   # Bootloader.
   boot.loader = {
