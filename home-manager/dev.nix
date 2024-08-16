@@ -22,7 +22,7 @@
 
       ignores = [
         ".envrc"
-        ".direnv/**"
+        "**/.direnv/**"
       ];
     };
   };

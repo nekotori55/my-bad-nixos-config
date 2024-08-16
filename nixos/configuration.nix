@@ -56,6 +56,10 @@
     wget
   ];
 
+  security.sudo.extraConfig = ''
+    Defaults        timestamp_timeout=30
+  '';
+
   users.users = {
     kefrnik = {
       initialPassword = "aboba";
