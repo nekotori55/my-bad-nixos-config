@@ -1,33 +1,29 @@
 {	pkgs,	... }:
 
 let	
-	vscodeExtensions = import ./vscode-default-extensions.nix { pkgs = pkgs; };		
+	vscode = import ./vscode.nix;		
 in
 {
-	programs.vscode = {
-		enable = true;
-		#package = pkgs.vscode;
-		
-		extensions = vscodeExtensions;
-	};
-
+  imports = [
+    ./vscode.nix
+  ];
 	
 	programs = {
+    bash = {
+    	enable = true; # allow homemanager to manage shell
+    };
+
     direnv = {
       enable = true;
       enableBashIntegration = true; 
       nix-direnv.enable = true;
     };
-
-    bash = {
-    	enable = true; # allow homemanager to manage shell
-    };
   };
 	
 
 	home.packages = with pkgs; [
-    
-    # Self-explanatory
 		docker-compose 
+    nixd
   ];
+
 }
