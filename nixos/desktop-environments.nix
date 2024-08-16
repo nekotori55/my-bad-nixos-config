@@ -5,10 +5,12 @@
   services.xserver = {
     enable = true;
     displayManager.gdm.enable = true;
-    #displayManager.lightdm.enable = true;
-    #displayManager.sddm.enable = true;
     desktopManager.gnome.enable = true;
   };
+
+  environment.systemPackages = with pkgs; [
+    gnome3.gnome-tweaks
+  ];
 
   environment.gnome.excludePackages = (with pkgs; [
     gnome-photos
@@ -30,13 +32,19 @@
   ]);
 
   # Configure keymap in X11
+  # For gnome works only for the first launch,
+  # Because gnome uses it's own settings generated from these values
+  # To reset this settings use:
+  #   gsettings reset org.gnome.desktop.input-sources xkb-options
+  #   gsettings reset org.gnome.desktop.input-sources sources
+  # and then logout to re-generate settings
   services.xserver.xkb = {
     layout = "us,ru";
     variant = "";
     options = "grp:alt_shift_toggle";
   };
 
-  ##################################
+
 
 
   # HYPRLAND
