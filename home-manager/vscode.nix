@@ -3,6 +3,9 @@
 let
   vscodeExtensions = with pkgs.vscode-extensions;
     [
+      # Nix-related stuff
+      mkhl.direnv
+      bbenoist.nix
       jnoortheen.nix-ide
 
       # Themes
@@ -14,10 +17,15 @@ let
       # Python
       ms-python.python
       ms-python.debugpy
+      ms-python.vscode-pylance
 
-      # Nix-related stuff
-      mkhl.direnv
-      bbenoist.nix
+    ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+      {
+        name = "auto-run-command";
+        publisher = "gabrielgrinberg";
+        version = "1.6.0";
+        sha256 = "c6c242bc20be7921b0f7ece019549d0d1156a3ab10831c8f3ccc0b4704eee57e";
+      }
     ];
 
 
@@ -38,6 +46,20 @@ let
       };
 
       "workbench.colorTheme" = "Dracula";
+
+      "python.defaultInterpreterPath" = "\${env:PYTHONPATH}";
+
+      "auto-run-command.rules" = [
+        {
+          "condition" = [
+            "always"
+          ];
+          "command" = "python.clearWorkspaceInterpreter";
+          "message" = "Super condition met. Running";
+        }
+      ];
+
+      "direnv.restart.automatic" = true;
     };
 in
 {

@@ -21,7 +21,7 @@
       userEmail = "nekotori55@gmail.com";
 
       ignores = [
-        ".envrc"
+        #".envrc"
         "**/.direnv/**"
       ];
     };
