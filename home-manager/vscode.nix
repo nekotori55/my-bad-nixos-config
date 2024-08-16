@@ -1,28 +1,37 @@
 { pkgs, ... }:
 
-let 
+let
   vscodeExtensions = with pkgs.vscode-extensions;
-  [
-    # Themes
-    dracula-theme.theme-dracula
+    [
+      jnoortheen.nix-ide
 
-    # Go
-    golang.go
+      # Themes
+      dracula-theme.theme-dracula
 
-    # Python
-    ms-python.python
-    ms-python.debugpy
+      # Go
+      golang.go
 
-    # Nix-related stuff
-    mkhl.direnv
-    bbenoist.nix
-    jnoortheen.nix-ide
-  ];
-in 
+      # Python
+      ms-python.python
+      ms-python.debugpy
+
+      # Nix-related stuff
+      mkhl.direnv
+      bbenoist.nix
+    ];
+in
 {
+  nixpkgs = {
+    config = {
+      #      allowUnfree = true;
+      #allowUnfreePredicate = (_: true);
+    };
+  };
+
+
   programs.vscode = {
-		enable = true;
-		#package = pkgs.vscodium; # uncomment for vscodium
-		extensions = vscodeExtensions;
-	};
+    enable = true;
+    #package = pkgs.vscodium; # uncomment for vscodium
+    extensions = vscodeExtensions;
+  };
 }
