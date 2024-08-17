@@ -39,6 +39,13 @@ let
 
   settings =
     {
+      # EDITOR SETTINGS
+      "editor.formatOnSave" = true;
+      "workbench.colorTheme" = "Dracula";
+
+      # EXTENSIONS SETTINGS
+      # 
+      # Nix IDE
       "nix.enableLanguageServer" = true;
       "nix.serverPath" = "nixd";
       "nix.serverSettings" = {
@@ -53,10 +60,10 @@ let
         };
       };
 
-      "workbench.colorTheme" = "Dracula";
-
+      # Python settings
       "python.defaultInterpreterPath" = "\${env:PYTHONPATH}";
 
+      # Auto Run Command settings
       "auto-run-command.rules" = [
         {
           "condition" = [
@@ -67,6 +74,7 @@ let
         }
       ];
 
+      # direnv settings
       "direnv.restart.automatic" = true;
     };
 in
