@@ -28,6 +28,12 @@ let
         version = "1.6.0";
         sha256 = "c6c242bc20be7921b0f7ece019549d0d1156a3ab10831c8f3ccc0b4704eee57e";
       }
+      {
+        name = "vscord";
+        publisher = "leonardssh";
+        version = "5.2.12";
+        sha256 = "5860c48b3606e9402a7b58e786f8df168b970c0f58af93fe063c4f6a1008b131";
+      }
     ]);
 
 
