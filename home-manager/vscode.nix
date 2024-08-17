@@ -1,7 +1,8 @@
 { pkgs, ... }:
 
 let
-  vscodeExtensions = with pkgs.vscode-extensions;
+  vscodeExtensions = with pkgs;
+    (with vscode-extensions;
     [
       # Nix-related stuff
       mkhl.direnv
@@ -18,15 +19,16 @@ let
       ms-python.python
       ms-python.debugpy
       ms-python.vscode-pylance
+      ms-python.black-formatter
 
-    ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+    ] ++ vscode-utils.extensionsFromVscodeMarketplace [
       {
         name = "auto-run-command";
         publisher = "gabrielgrinberg";
         version = "1.6.0";
         sha256 = "c6c242bc20be7921b0f7ece019549d0d1156a3ab10831c8f3ccc0b4704eee57e";
       }
-    ];
+    ]);
 
 
   settings =
