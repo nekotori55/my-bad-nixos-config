@@ -51,45 +51,6 @@
     LC_TIME = "ru_RU.UTF-8";
   };
 
-  environment.systemPackages = with pkgs; [
-    git
-    vim
-    wget
-  ];
-
-  security.sudo.extraConfig = ''
-    Defaults        timestamp_timeout=30
-  '';
-
-  users.users = {
-    kefrnik = {
-      initialPassword = "aboba";
-      isNormalUser = true;
-      openssh.authorizedKeys.keys = [ ];
-      extraGroups = [ "wheel" ];
-    };
-  };
-
-  fonts.packages = with pkgs; [
-    fira-code
-    fira-code-symbols
-    corefonts
-    vistafonts
-  ];
-
-  fonts.enableDefaultPackages = true;
-
-
-
-  # Enable docker (rootless mode)
-  virtualisation.docker.enable = true;
-  virtualisation.docker.rootless = {
-    enable = true;
-    setSocketVariable = true;
-  };
-
-
-
   # BLUETOOTH
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
@@ -119,6 +80,42 @@
     #wireplumber.settings = {bluetooth.autoswitch-to-headset-profile = false;};
   };
 
+  environment.systemPackages = with pkgs; [
+    git
+    vim
+    wget
+  ];
+
+
+  # Everything after this point is kinda user settings but 
+  # were stated here out of necessity
+  users.users = {
+    kefrnik = {
+      initialPassword = "aboba";
+      isNormalUser = true;
+      openssh.authorizedKeys.keys = [ ];
+      extraGroups = [ "wheel" ];
+    };
+  };
+
+  fonts.packages = with pkgs; [
+    fira-code
+    fira-code-symbols
+    corefonts
+    vistafonts
+  ];
+  fonts.enableDefaultPackages = true;
+
+  # Enable docker (rootless mode)
+  virtualisation.docker.enable = true;
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
+
+  security.sudo.extraConfig = ''
+    Defaults        timestamp_timeout=30
+  '';
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";
