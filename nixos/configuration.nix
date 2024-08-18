@@ -84,6 +84,7 @@
     git
     vim
     wget
+    cachix
   ];
 
 
@@ -113,7 +114,7 @@
     setSocketVariable = true;
   };
 
-  security.sudo.extraConfig = ''2
+  security.sudo.extraConfig = ''
     Defaults        timestamp_timeout=30
   '';
 

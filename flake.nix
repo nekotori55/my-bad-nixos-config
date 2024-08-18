@@ -28,10 +28,13 @@
 
       nixosConfigurations = {
         nixos-xx = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
+          specialArgs = {
+            inherit inputs outputs;
+          };
 
           modules = [
             ./nixos/configuration.nix
+            ./cachix.nix
 
             home-manager.nixosModules.home-manager
             {
