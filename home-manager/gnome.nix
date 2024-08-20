@@ -2,6 +2,7 @@
 {
   home.packages = with pkgs; [
     gnomeExtensions.appindicator
+    gnomeExtensions.pop-shell
   ];
 
   dconf = {
@@ -13,13 +14,14 @@
         disable-user-extensions = false;
         enabled-extensions = with pkgs.gnomeExtensions; [
           appindicator.extensionUuid
+          pop-shell.extensionUuid
         ];
       };
 
       "org/gnome/desktop/background" =
         let
-          #bg = "https://w.wallhaven.cc/full/r2/wallhaven-r2dz6w.jpg";
-          bg = "file://~.wallpaper.png";
+          bg = "https://w.wallhaven.cc/full/r2/wallhaven-r2dz6w.jpg";
+          #bg = "file://~.wallpaper.png";
         in
         {
           picture-uri = "${bg}";
