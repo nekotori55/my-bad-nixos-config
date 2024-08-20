@@ -35,6 +35,7 @@
           modules = [
             ./nixos/configuration.nix
             ./cachix.nix
+            ./pkgs/default.nix
 
             home-manager.nixosModules.home-manager
             {
