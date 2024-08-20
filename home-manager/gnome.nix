@@ -16,9 +16,10 @@
         ];
       };
 
-      "org/gnome/desktop/background" = 
+      "org/gnome/desktop/background" =
         let
-          bg = "https://w.wallhaven.cc/full/r2/wallhaven-r2dz6w.jpg";
+          #bg = "https://w.wallhaven.cc/full/r2/wallhaven-r2dz6w.jpg";
+          bg = "file://~.wallpaper.png";
         in
         {
           picture-uri = "${bg}";

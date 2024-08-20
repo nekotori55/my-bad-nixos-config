@@ -12,7 +12,6 @@
   programs.home-manager.enable = true;
 
   imports = [
-    #./hyprland.nix
     ./dev.nix
     ./gnome.nix
   ];

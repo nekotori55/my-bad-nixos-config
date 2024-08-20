@@ -4,7 +4,6 @@
   # GNOME
   services.xserver = {
     enable = true;
-    displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
   };
 
@@ -43,11 +42,4 @@
     variant = "";
     options = "grp:alt_shift_toggle";
   };
-
-
-
-
-  # HYPRLAND
-  programs.hyprland.enable = false;
-
 }

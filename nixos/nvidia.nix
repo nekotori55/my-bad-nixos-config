@@ -25,13 +25,13 @@
     libGL
   ];
 
-  boot.kernelParams = [ "nvidia_drm.fbdev=1" "nvidia-drm.modeset=1" "module_blacklist=i915" ];
+  #boot.kernelParams = [ "nvidia_drm.fbdev=1" "nvidia-drm.modeset=1" ];
 
   hardware.nvidia = {
     modesetting.enable = true;
-    open = true; # just better
+    open = false; # just better
     nvidiaSettings = true;
-    #forceFullCompositionPipeline = true;
+    forceFullCompositionPipeline = true;
 
     powerManagement = {
       enable = false; # disable if artefacts
@@ -69,20 +69,4 @@
       nvidiaBusId = "PCI:1:0:0";
     };
   };
-
-
-  specialisation = {
-    on-the-go.configuration = {
-      system.nixos.tags = [ "on-the-go" ];
-      hardware.nvidia = {
-        prime.offload.enable = lib.mkForce true;
-        prime.offload.enableOffloadCmd = lib.mkForce true;
-        prime.sync.enable = lib.mkForce false;
-
-        powerManagement.enable = lib.mkForce true; # disable if artefacts
-        powerManagement.finegrained = lib.mkForce true; # works on turing or newer (should check)
-      };
-    };
-  };
-
 }

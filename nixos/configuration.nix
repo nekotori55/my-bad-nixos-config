@@ -6,16 +6,15 @@
   # You can import other NixOS modules here
   imports = [
     ./hardware-configuration.nix
-    ./desktop-environments.nix
+    ./desktop-environments/default.nix
     ./nvidia.nix
     ./vm.nix
+    ./on-the-go-specialisation.nix
   ];
 
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-    };
-  };
+
+  # NIXOS CFG
+  nixpkgs.config.allowUnfree = true;
 
   nix.settings.experimental-features = "nix-command flakes";
 
@@ -27,15 +26,17 @@
     options = "--delete-older-than +15";
   };
 
-  # Bootloader.
-  boot.loader = {
-    grub = {
-      enable = true;
-      device = "nodev";
-      efiSupport = true;
-      useOSProber = false;
+  # HARDWARE CFG
+  services.auto-cpufreq.enable = true;
+  services.auto-cpufreq.settings = {
+    battery = {
+      governor = "powersave";
+      turbo = "never";
     };
-    efi.canTouchEfiVariables = true;
+    charger = {
+      governor = "performance";
+      turbo = "auto";
+    };
   };
 
   # Network
@@ -59,14 +60,14 @@
     LC_TIME = "ru_RU.UTF-8";
   };
 
-  # BLUETOOTH
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
 
-  hardware.bluetooth.hsphfpd.enable = false;
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+    hsphfpd.enable = false;
+  };
 
   hardware.pulseaudio.enable = false;
-
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -88,6 +89,18 @@
     #wireplumber.settings = {bluetooth.autoswitch-to-headset-profile = false;};
   };
 
+  boot.loader = {
+    grub = {
+      enable = true;
+      device = "nodev";
+      efiSupport = true;
+      useOSProber = true;
+    };
+    efi.canTouchEfiVariables = true;
+  };
+
+
+  # SYSTEM CFG
   environment.systemPackages = with pkgs; [
     git
     vim
@@ -127,7 +140,7 @@
   '';
 
   programs.gamemode.enable = true;
-  programs.steam.enable = true; # Couldn't install through home-manager lol
+  programs.steam.enable = true; # Couldn't install through home-manager lol cuz need some system stuff
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";
