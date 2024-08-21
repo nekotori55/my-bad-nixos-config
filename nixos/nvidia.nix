@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-unstable, ... }:
+{ config, pkgs-unstable, ... }:
 {
   hardware.opengl = {
     enable = true;
@@ -24,7 +24,7 @@
     nvitop
     libGL
 
-    pkgs.vkdevicechooser
+    vkdevicechooser
   ];
 
   boot.kernelParams = [ "nvidia_drm.fbdev=1" ];

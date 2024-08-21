@@ -28,16 +28,29 @@
     spotify
 
     prismlauncher
+
     spoof-dpi
   ];
 
-
+  # Programs
   programs.firefox.enable = true;
 
-
+  # Variables (doesn't work)
   home.sessionVariables.NIXOS_OZONE_WL = "1";
   home.sessionVariables.EDITOR = "vim";
 
+  # Services
+  systemd.user.services.spoof-dpi-service = {
+    Unit = {
+      Description = "Start spoof-dpi";
+    };
+    Install = {
+      WantedBy = [ "default.target" ];
+    };
+    Service = {
+      ExecStart = "${pkgs.spoof-dpi}/bin/spoof-dpi";
+    };
+  };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

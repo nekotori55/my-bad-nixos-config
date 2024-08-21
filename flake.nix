@@ -30,8 +30,9 @@
 
       nixosConfigurations = {
         nixos-xx = nixpkgs.lib.nixosSystem {
-          #system = "x86_64-linux";
           specialArgs = {
+            inherit inputs outputs;
+
             pkgs-unstable = import unstable {
               config.allowUnfree = true;
               system = "x86_64-linux";
