@@ -34,6 +34,20 @@ let
         version = "5.2.12";
         sha256 = "5860c48b3606e9402a7b58e786f8df168b970c0f58af93fe063c4f6a1008b131";
       }
+
+      # CLIPS (god save me)
+      {
+        name = "clips-ide";
+        publisher = "algono";
+        version = "1.2.3";
+        sha256 = "sha256-/ZuX0j5p0rN2iWc4Z09u3eNMWS2KihWbQkJ3XCTbcdM=";
+      }
+      {
+        name = "clips-lang";
+        publisher = "nerg";
+        version = "1.0.4";
+        sha256 = "sha256-e89t7earU88a/envfJvjRfBDmGriYKtw5e+yPptop5M=";
+      }
     ]);
 
 
