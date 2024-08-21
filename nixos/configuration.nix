@@ -40,6 +40,12 @@
     };
   };
 
+  # Add swap so no death on cpu-intense tasks
+  swapDevices = [{
+    device = "/var/lib/swapfile";
+    size = 20 * 1024;
+  }];
+
   # Network
   networking.hostName = "nixos-xx";
 

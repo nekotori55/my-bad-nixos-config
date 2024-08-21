@@ -26,6 +26,8 @@
     vesktop
 
     spotify
+
+    prismlauncher
   ];
 
 

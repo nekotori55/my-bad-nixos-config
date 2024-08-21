@@ -1,7 +1,6 @@
 { config, pkgs, pkgs-unstable, ... }:
 {
   hardware.opengl = {
-    #package = pkgs-unstable.opengl;
     enable = true;
     driSupport32Bit = true;
     extraPackages32 = with pkgs-unstable.pkgsi686Linux; [ libva ];

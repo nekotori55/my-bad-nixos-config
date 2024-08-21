@@ -18,6 +18,11 @@
         ];
       };
 
+      # 
+      "org/gnome/mutter" = {
+        check-alive-timeout = 60000;
+      };
+
       "org/gnome/desktop/background" =
         let
           #bg = "https://w.wallhaven.cc/full/r2/wallhaven-r2dz6w.jpg";
