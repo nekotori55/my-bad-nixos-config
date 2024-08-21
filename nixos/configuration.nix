@@ -86,7 +86,9 @@
       "override.monitor.bluez.properties" = {
         "bluez5.enable-msbc" = false;
         "bluez5.hfphsp-backend" = "none";
-        "bluez5.a2dp.ldac.quality" = "hq";
+        "bluez5.a2dp.ldac.quality" = "mq";
+        "api.alsa.headroom" = 1024;
+        "bluez5.a2dp.aac.bitratemode" = 1;
         "bluez5.roles" = [
           "a2dp_sink"
           "a2dp_source"
