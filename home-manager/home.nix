@@ -30,6 +30,8 @@
     prismlauncher
 
     spoof-dpi
+
+    obsidian
   ];
 
   # Programs

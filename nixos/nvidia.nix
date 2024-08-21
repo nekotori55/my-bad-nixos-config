@@ -1,4 +1,4 @@
-{ config, pkgs-unstable, ... }:
+{ config, pkgs, pkgs-unstable, ... }:
 {
   hardware.opengl = {
     enable = true;
@@ -8,7 +8,7 @@
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
-  environment.systemPackages = with pkgs-unstable; [
+  environment.systemPackages = (with pkgs-unstable; [
     lshw #  sudo lshw -c display    # to check bus id's
 
     libva-utils
@@ -24,8 +24,11 @@
     nvitop
     libGL
 
+  ])
+  ++
+  (with pkgs; [
     vkdevicechooser
-  ];
+  ]);
 
   boot.kernelParams = [ "nvidia_drm.fbdev=1" ];
 

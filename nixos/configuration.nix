@@ -144,6 +144,10 @@
     setSocketVariable = true;
   };
 
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
+
+
   security.sudo.extraConfig = ''
     Defaults        timestamp_timeout=30
   '';
