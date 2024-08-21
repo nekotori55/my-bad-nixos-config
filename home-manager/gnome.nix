@@ -20,7 +20,9 @@
 
       "org/gnome/desktop/background" =
         let
-          bg = "https://w.wallhaven.cc/full/r2/wallhaven-r2dz6w.jpg";
+          #bg = "https://w.wallhaven.cc/full/r2/wallhaven-r2dz6w.jpg";
+          #bg = "https://w.wallhaven.cc/full/kx/wallhaven-kxe8z7.jpg";
+          bg = "https://w.wallhaven.cc/full/m3/wallhaven-m35z1k.png";
           #bg = "file://~.wallpaper.png";
         in
         {

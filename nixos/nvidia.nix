@@ -1,14 +1,15 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-unstable, ... }:
 {
   hardware.opengl = {
+    #package = pkgs-unstable.opengl;
     enable = true;
     driSupport32Bit = true;
-    extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
+    extraPackages32 = with pkgs-unstable.pkgsi686Linux; [ libva ];
   };
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs-unstable; [
     lshw #  sudo lshw -c display    # to check bus id's
 
     libva-utils
@@ -24,11 +25,10 @@
     nvitop
     libGL
 
-    vkdevicechooser
-
+    pkgs.vkdevicechooser
   ];
 
-  #boot.kernelParams = [ "nvidia_drm.fbdev=1" "nvidia-drm.modeset=1" ];
+  boot.kernelParams = [ "nvidia_drm.fbdev=1" ];
 
   #hardware.graphics = {
   #  enable = true;
@@ -48,16 +48,16 @@
       finegrained = false; # works on turing or newer (should check)
     };
 
-    package = config.boot.kernelPackages.nvidiaPackages.production;
+    #package = config.boot.kernelPackages.nvidiaPackages.production;
 
-    # package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
-    #   version = "555.58.02";
-    #   sha256_64bit = "sha256-xctt4TPRlOJ6r5S54h5W6PT6/3Zy2R4ASNFPu8TSHKM=";
-    #   sha256_aarch64 = "sha256-wb20isMrRg8PeQBU96lWJzBMkjfySAUaqt4EgZnhyF8=";
-    #   openSha256 = "sha256-8hyRiGB+m2hL3c9MDA/Pon+Xl6E788MZ50WrrAGUVuY=";
-    #   settingsSha256 = "sha256-ZpuVZybW6CFN/gz9rx+UJvQ715FZnAOYfHn5jt5Z2C8=";
-    #   persistencedSha256 = "sha256-a1D7ZZmcKFWfPjjH1REqPM5j/YLWKnbkP9qfRyIyxAw=";
-    # };
+    package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
+      version = "555.58.02";
+      sha256_64bit = "sha256-xctt4TPRlOJ6r5S54h5W6PT6/3Zy2R4ASNFPu8TSHKM=";
+      sha256_aarch64 = "sha256-wb20isMrRg8PeQBU96lWJzBMkjfySAUaqt4EgZnhyF8=";
+      openSha256 = "sha256-8hyRiGB+m2hL3c9MDA/Pon+Xl6E788MZ50WrrAGUVuY=";
+      settingsSha256 = "sha256-ZpuVZybW6CFN/gz9rx+UJvQ715FZnAOYfHn5jt5Z2C8=";
+      persistencedSha256 = "sha256-a1D7ZZmcKFWfPjjH1REqPM5j/YLWKnbkP9qfRyIyxAw=";
+    };
 
 
     prime = {

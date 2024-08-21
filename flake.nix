@@ -4,6 +4,7 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    unstable.url = "github:nixos/nixpkgs/master";
 
     # Home manager
     home-manager.url = "github:nix-community/home-manager/release-24.05";
@@ -14,6 +15,7 @@
     { self
     , nixpkgs
     , home-manager
+    , unstable
     , ...
     } @ inputs:
     let
@@ -28,8 +30,12 @@
 
       nixosConfigurations = {
         nixos-xx = nixpkgs.lib.nixosSystem {
+          #system = "x86_64-linux";
           specialArgs = {
-            inherit inputs outputs;
+            pkgs-unstable = import unstable {
+              config.allowUnfree = true;
+              system = "x86_64-linux";
+            };
           };
 
           modules = [
@@ -49,3 +55,4 @@
       };
     };
 }
+
