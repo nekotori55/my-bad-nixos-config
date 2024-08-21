@@ -28,6 +28,7 @@
     spotify
 
     prismlauncher
+    spoof-dpi
   ];
 
 
