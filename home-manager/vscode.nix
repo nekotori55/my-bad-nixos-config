@@ -21,6 +21,11 @@ let
       ms-python.vscode-pylance
       ms-python.black-formatter
 
+      # C++
+      ms-vscode.cpptools
+      ms-vscode.cmake-tools
+      twxs.cmake
+
     ] ++ vscode-utils.extensionsFromVscodeMarketplace [
       {
         name = "auto-run-command";
@@ -56,6 +61,7 @@ let
       # EDITOR SETTINGS
       "editor.formatOnSave" = true;
       "workbench.colorTheme" = "Dracula";
+      "window.restoreWindows" = "none";
 
       # EXTENSIONS SETTINGS
       # 

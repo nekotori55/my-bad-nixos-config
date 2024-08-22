@@ -33,5 +33,8 @@
     nixd
     nixpkgs-fmt
     gitkraken
+
+    linuxPackages_latest.perf
+    hotspot
   ];
 }
