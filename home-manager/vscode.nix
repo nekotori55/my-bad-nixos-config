@@ -53,6 +53,12 @@ let
         version = "1.0.4";
         sha256 = "sha256-e89t7earU88a/envfJvjRfBDmGriYKtw5e+yPptop5M=";
       }
+      {
+        name = "nsight-vscode-edition";
+        publisher = "nvidia";
+        version = "2024.1.34572442";
+        sha256 = "sha256-yEffpXNmePpzZcX46dkK8Ic9gffZD+djlPx5HV3F2oE=";
+      }
     ]);
 
 
