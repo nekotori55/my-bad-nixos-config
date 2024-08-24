@@ -68,6 +68,7 @@ let
       "editor.formatOnSave" = true;
       "workbench.colorTheme" = "Dracula";
       "window.restoreWindows" = "none";
+      "git.enableSmartCommit" = true;
 
       # EXTENSIONS SETTINGS
       # 
