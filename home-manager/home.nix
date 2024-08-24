@@ -42,7 +42,7 @@
       enable = true; # allow homemanager to manage shell
 
       shellAliases = {
-        c = "code ~/.nix-config";
+        c = "code /etc/nixos";
         s = "sudo nixos-rebuild switch";
       };
     };
