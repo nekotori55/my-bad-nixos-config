@@ -46,7 +46,7 @@
         s = "sudo nixos-rebuild switch";
 
         # Browser bookmarks :skull:
-        github = "firefox --url github.com";
+        gh = "firefox --url github.com";
       };
     };
   };
