@@ -35,7 +35,18 @@
   ];
 
   # Programs
-  programs.firefox.enable = true;
+  programs = {
+    firefox.enable = true;
+
+    bash = {
+      enable = true; # allow homemanager to manage shell
+
+      shellAliases = {
+        c = "code ~/.nix-config";
+        s = "sudo nixos-rebuild switch";
+      };
+    };
+  };
 
   # Variables (doesn't work)
   home.sessionVariables.NIXOS_OZONE_WL = "1";
@@ -51,6 +62,15 @@
     };
     Service = {
       ExecStart = "${pkgs.spoof-dpi}/bin/spoof-dpi";
+    };
+  };
+
+  # Custom desktop entries
+  xdg.desktopEntries = {
+    nixos-config = {
+      name = "NixOS Config";
+      exec = ''code /etc/nixos'';
+      icon = "nix-snowflake";
     };
   };
 

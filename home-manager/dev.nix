@@ -5,10 +5,6 @@
   ];
 
   programs = {
-    bash = {
-      enable = true; # allow homemanager to manage shell
-    };
-
     direnv = {
       enable = true;
       enableBashIntegration = true;
