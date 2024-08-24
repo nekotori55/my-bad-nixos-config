@@ -44,6 +44,9 @@
       shellAliases = {
         c = "code /etc/nixos";
         s = "sudo nixos-rebuild switch";
+
+        # Browser bookmarks :skull:
+        github = "firefox --url github.com";
       };
     };
   };
