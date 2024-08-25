@@ -23,7 +23,7 @@
   nix.gc = {
     automatic = true;
     dates = "daily";
-    options = "--delete-older-than +15";
+    options = "--delete-older-than 15d";
   };
 
   # HARDWARE CFG
@@ -95,7 +95,6 @@
         ];
       };
     };
-    #wireplumber.settings = {bluetooth.autoswitch-to-headset-profile = false;};
   };
 
   boot.loader = {
@@ -153,10 +152,9 @@
   '';
 
   programs.gamemode.enable = true;
-  #programs.steam.enable = true; # Couldn't install through home-manager lol cuz need some system stuff
 
   programs.steam = {
-    enable = true;
+    enable = true; # Couldn't install through home-manager lol cuz need some system stuff
     package = pkgs.steam.override {
       extraLibraries = (pkgs:
         with pkgs;[
