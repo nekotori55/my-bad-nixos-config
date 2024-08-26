@@ -44,6 +44,7 @@
       shellAliases = {
         c = "code /etc/nixos";
         s = "sudo nixos-rebuild switch";
+        vm = "mkdir ~/nixos-vm-current; cd ~/nixos-vm-current; rm -rf *; sudo nixos-rebuild build-vm; result/bin/run-$HOSTNAME-vm";
 
         # Browser bookmarks :skull:
         gh = "firefox --url github.com";
