@@ -1,4 +1,3 @@
-{ lib, ... }:
 {
   services.spice-vdagentd.enable = true;
   virtualisation.vmVariant = {
@@ -10,11 +9,6 @@
         x = 1920;
         y = 1080;
       };
-    };
-
-    services.displayManager = {
-      #autoLogin.enable = lib.mkForce true;
-      #autoLogin.user = lib.mkForce "kefrnik";
     };
 
     virtualisation.qemu.options = [
