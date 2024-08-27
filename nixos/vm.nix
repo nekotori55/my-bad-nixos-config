@@ -13,8 +13,8 @@
     };
 
     services.displayManager = {
-      autoLogin.enable = lib.mkForce true;
-      autoLogin.user = lib.mkForce "kefrnik";
+      #autoLogin.enable = lib.mkForce true;
+      #autoLogin.user = lib.mkForce "kefrnik";
     };
 
     virtualisation.qemu.options = [
