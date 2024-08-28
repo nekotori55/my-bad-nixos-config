@@ -133,6 +133,7 @@
     fira-code-symbols
     corefonts
     vistafonts
+    noto-fonts-cjk-sans
   ];
   fonts.enableDefaultPackages = true;
 
