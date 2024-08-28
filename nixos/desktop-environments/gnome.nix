@@ -5,6 +5,7 @@
   services.xserver = {
     enable = true;
     desktopManager.gnome.enable = true;
+    excludePackages = [ pkgs.xterm ];
   };
 
   environment.systemPackages = with pkgs; [
@@ -17,8 +18,9 @@
   ]) ++ (with pkgs.gnome; [
     cheese # webcam tool
     gnome-music
-    #gnome-terminal
-    #gedit # text editor
+    gnome-weather
+    gnome-contacts
+    yelp
     epiphany # web browser
     geary # email reader
     evince # document viewer

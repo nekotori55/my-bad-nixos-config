@@ -37,6 +37,8 @@
           "/${keybind-base-path}/custom1/"
           "/${keybind-base-path}/custom2/"
           "/${keybind-base-path}/custom3/"
+          "/${keybind-base-path}/custom4/"
+          "/${keybind-base-path}/custom5/"
         ];
       };
 
@@ -59,6 +61,16 @@
         binding = "<Shift><Super>e";
         command = "nautilus admin:/";
         name = "Explorer (administrator mode)";
+      };
+      "${keybind-base-path}/custom4" = {
+        binding = "<Super>c";
+        command = "code /etc/nixos/";
+        name = "Open NixOS config";
+      };
+      "${keybind-base-path}/custom5" = {
+        binding = "<Shift><Super>c";
+        command = "kgx -e vm;exit"; # my bash alias, defined in home-manager/home.nix
+        name = "Open NixOS VM";
       };
     };
   };

@@ -53,6 +53,8 @@ let
         version = "1.0.4";
         sha256 = "sha256-e89t7earU88a/envfJvjRfBDmGriYKtw5e+yPptop5M=";
       }
+
+      # CUDA
       {
         name = "nsight-vscode-edition";
         publisher = "nvidia";
