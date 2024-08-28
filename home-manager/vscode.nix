@@ -11,6 +11,7 @@ let
 
       # Themes
       dracula-theme.theme-dracula
+      jdinhlife.gruvbox
 
       # Go
       golang.go
@@ -68,7 +69,7 @@ let
     {
       # EDITOR SETTINGS
       "editor.formatOnSave" = true;
-      "workbench.colorTheme" = "Dracula";
+      "workbench.colorTheme" = "Gruvbox Dark Medium";
       "window.restoreWindows" = "none";
       "git.enableSmartCommit" = true;
       "git.confirmSync" = false;

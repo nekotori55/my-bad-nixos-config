@@ -3,6 +3,13 @@
   home.packages = with pkgs; [
     gnomeExtensions.appindicator
     gnomeExtensions.pop-shell
+    gruvbox-gtk-theme
+    gruvbox-dark-icons-gtk
+    gnomeExtensions.user-themes
+    gtk-engine-murrine
+    sassc
+    gnome-themes-extra
+    graphite-cursors
   ];
 
   dconf = {
@@ -14,6 +21,7 @@
         enabled-extensions = with pkgs.gnomeExtensions; [
           appindicator.extensionUuid
           pop-shell.extensionUuid
+          user-themes.extensionUuid
         ];
       };
 
