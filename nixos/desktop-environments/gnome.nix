@@ -22,7 +22,7 @@
     gnome-contacts
     yelp
     epiphany # web browser
-    geary # email reader
+    # geary # email reader
     evince # document viewer
     gnome-characters
     totem # video player
