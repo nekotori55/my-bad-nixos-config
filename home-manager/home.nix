@@ -33,6 +33,8 @@
     prismlauncher
 
     spoof-dpi
+
+    onlyoffice-bin
   ];
 
   # Programs
