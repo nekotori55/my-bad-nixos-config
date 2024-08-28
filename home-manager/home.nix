@@ -21,17 +21,18 @@
     neofetch
     cowsay
     firefox
+    obsidian
 
     telegram-desktop
     vesktop
 
     spotify
+    kana
+    ani-cli
 
     prismlauncher
 
     spoof-dpi
-
-    obsidian
   ];
 
   # Programs
