@@ -1,14 +1,21 @@
 { pkgs, config, ... }:
 {
   home.packages = with pkgs; [
-    gnomeExtensions.appindicator
-    gnomeExtensions.pop-shell
-    gnomeExtensions.user-themes
+    
     gtk-engine-murrine
     gruvbox-gtk-theme
     sassc
     gnome-themes-extra
+
+    # Gnome extensions
+    gnomeExtensions.appindicator
+    gnomeExtensions.pop-shell
+    gnomeExtensions.user-themes
     gnomeExtensions.x11-gestures
+    gnomeExtensions.transparent-top-bar
+    gnomeExtensions.gravatar
+    gnomeExtensions.user-avatar-in-quick-settings
+    gnomeExtensions.gamemode-shell-extension
   ];
 
   gtk = {
@@ -18,11 +25,6 @@
       name = "oomox-gruvbox-dark";
       package = pkgs.gruvbox-dark-icons-gtk;
     };
-
-    # theme = {
-    #   name = "Gruvbox-Dark";
-    #   package = pkgs.gruvbox-gtk-theme;
-    # };
 
     cursorTheme = {
       name = "graphite-dark";
@@ -49,10 +51,18 @@
     sha256 = "1angwl1knhjxv3hfr6dzrnm7xzkgxv6vbv8ny2bkmr9f9wk6mwd8";
   };
 
+  # home.file.".face".source = builtins.fetchurl {
+  #   url = "https://gravatar.com/avatar/97402f22d6027e8c6647e0b133b43db8?size=256";
+  #   sha256 = "1scp34vkpqdyfyvj4zyib4gs3rbjx23a0hkmmkf7kjwv23cwb229";
+  # };
+
   dconf = {
     enable = true;
 
-    settings = let keybind-base-path = "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings"; in {
+    settings = 
+    let 
+      keybind-base-path = "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings"; 
+    in {
       "org/gnome/shell" = {
         disable-user-extensions = false;
         enabled-extensions = with pkgs.gnomeExtensions; [
@@ -60,15 +70,15 @@
           pop-shell.extensionUuid
           user-themes.extensionUuid
           x11-gestures.extensionUuid
+          transparent-top-bar.extensionUuid
+          gravatar.extensionUuid
+          user-avatar-in-quick-settings.extensionUuid
+          gamemode-shell-extension.extensionUuid
         ];
       };
 
       "org/gnome/shell/extensions/user-theme" = {
         name = "Gruvbox-Dark";
-      };
-
-      "org/gnome/mutter" = {
-        check-alive-timeout = 60000;
       };
 
       "org/gnome/desktop/background" =
@@ -80,6 +90,10 @@
           picture-uri = "${bg}";
           picture-uri-dark = "${bg}";
         };
+
+      "org/gnome/mutter" = {
+        check-alive-timeout = 60000;
+      };
 
       "org/gnome/settings-daemon/plugins/media-keys" = {
         custom-keybindings = [
