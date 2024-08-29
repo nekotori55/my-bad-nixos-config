@@ -35,6 +35,8 @@
     spoof-dpi
 
     onlyoffice-bin
+
+    alpaca
   ];
 
   # Programs

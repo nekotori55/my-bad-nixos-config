@@ -3,11 +3,10 @@
 
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
-    unstable.url = "github:nixos/nixpkgs/master";
+    nixpkgs.url = "github:nixos/nixpkgs/master";
 
     # Home manager
-    home-manager.url = "github:nix-community/home-manager/release-24.05";
+    home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
@@ -15,7 +14,6 @@
     { self
     , nixpkgs
     , home-manager
-    , unstable
     , ...
     } @ inputs:
     let
@@ -32,11 +30,6 @@
         nixos-xx = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs outputs;
-
-            pkgs-unstable = import unstable {
-              config.allowUnfree = true;
-              system = "x86_64-linux";
-            };
           };
 
           modules = [
@@ -48,7 +41,6 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-
               home-manager.users.kefrnik = import ./home-manager/home.nix;
             }
           ];

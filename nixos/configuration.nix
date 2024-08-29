@@ -12,6 +12,7 @@
     ./on-the-go-specialisation.nix
   ];
 
+  boot.kernelPackages = pkgs.linuxPackages_zen;
 
   # NIXOS CFG
   nixpkgs.config.allowUnfree = true;
@@ -38,6 +39,12 @@
       governor = "performance";
       turbo = "auto";
     };
+  };
+
+  services.ollama = {
+    enable = true;
+    acceleration = "cuda";
+    port = 11111;
   };
 
   # Add swap so no death on cpu-intense tasks

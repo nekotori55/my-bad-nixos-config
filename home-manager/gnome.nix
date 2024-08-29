@@ -10,6 +10,7 @@
     sassc
     gnome-themes-extra
     graphite-cursors
+    gnomeExtensions.x11-gestures
   ];
 
   home.file.".wallpaper.png".source = builtins.fetchurl {
@@ -27,6 +28,7 @@
           appindicator.extensionUuid
           pop-shell.extensionUuid
           user-themes.extensionUuid
+          x11-gestures.extensionUuid
         ];
       };
 
