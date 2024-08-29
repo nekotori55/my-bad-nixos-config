@@ -2,8 +2,8 @@
 {
   specialisation = {
     on-the-go.configuration = {
-      services.ollama.acceleration = false;
-      
+      services.ollama.acceleration = lib.mkForce false;
+
       system.nixos.tags = [ "on-the-go" ];
       hardware = {
         nvidia = {
