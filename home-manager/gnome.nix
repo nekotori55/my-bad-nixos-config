@@ -3,15 +3,45 @@
   home.packages = with pkgs; [
     gnomeExtensions.appindicator
     gnomeExtensions.pop-shell
-    gruvbox-gtk-theme
-    gruvbox-dark-icons-gtk
     gnomeExtensions.user-themes
     gtk-engine-murrine
     sassc
     gnome-themes-extra
-    graphite-cursors
     gnomeExtensions.x11-gestures
   ];
+
+  gtk = {
+    enable = true;
+
+    iconTheme = {
+      name = "oomox-gruvbox-dark";
+      package = pkgs.gruvbox-dark-icons-gtk;
+    };
+
+    theme = {
+      name = "Gruvbox-Dark";
+      package = pkgs.gruvbox-gtk-theme;
+    };
+
+    cursorTheme = {
+      name = "Graphite-dark";
+      package = pkgs.graphite-cursors;
+    };
+
+    gtk3.extraConfig = {
+      Settings = ''
+        gtk-application-prefer-dark-theme=1
+      '';
+    };
+
+    gtk4.extraConfig = {
+      Settings = ''
+        gtk-application-prefer-dark-theme=1
+      '';
+    };
+  };
+
+  home.sessionVariables.GTK_THEME = "Gruvbox-Dark";
 
   home.file.".wallpaper.png".source = builtins.fetchurl {
     url = "https://w.wallhaven.cc/full/3l/wallhaven-3lyrvy.png";
