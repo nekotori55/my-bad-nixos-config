@@ -5,6 +5,7 @@
     gnomeExtensions.pop-shell
     gnomeExtensions.user-themes
     gtk-engine-murrine
+    gruvbox-gtk-theme
     sassc
     gnome-themes-extra
     gnomeExtensions.x11-gestures
@@ -18,13 +19,13 @@
       package = pkgs.gruvbox-dark-icons-gtk;
     };
 
-    theme = {
-      name = "Gruvbox-Dark";
-      package = pkgs.gruvbox-gtk-theme;
-    };
+    # theme = {
+    #   name = "Gruvbox-Dark";
+    #   package = pkgs.gruvbox-gtk-theme;
+    # };
 
     cursorTheme = {
-      name = "Graphite-dark";
+      name = "graphite-dark";
       package = pkgs.graphite-cursors;
     };
 
@@ -60,6 +61,10 @@
           user-themes.extensionUuid
           x11-gestures.extensionUuid
         ];
+      };
+
+      "org/gnome/shell/extensions/user-theme" = {
+        name = "Gruvbox-Dark";
       };
 
       "org/gnome/mutter" = {
