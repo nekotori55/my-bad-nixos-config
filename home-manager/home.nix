@@ -1,8 +1,7 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{ pkgs
-, ...
-}: {
+{ pkgs, ... }:
+{
 
   home = {
     username = "kefrnik";
@@ -15,7 +14,6 @@
     ./dev.nix
     ./gnome.nix
   ];
-
 
   home.packages = with pkgs; [
     neofetch
@@ -78,7 +76,7 @@
   xdg.desktopEntries = {
     nixos-config = {
       name = "NixOS Config";
-      exec = ''code /etc/nixos'';
+      exec = "code /etc/nixos";
       icon = "nix-snowflake";
     };
   };

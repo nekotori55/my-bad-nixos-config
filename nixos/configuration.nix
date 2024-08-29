@@ -1,8 +1,7 @@
 # This is your system's configuration file.
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
-{ pkgs
-, ...
-}: {
+{ pkgs, ... }:
+{
   # You can import other NixOS modules here
   imports = [
     ./hardware-configuration.nix
@@ -48,10 +47,12 @@
   };
 
   # Add swap so no death on cpu-intense tasks
-  swapDevices = [{
-    device = "/var/lib/swapfile";
-    size = 20 * 1024;
-  }];
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 20 * 1024;
+    }
+  ];
 
   # Network
   networking.hostName = "nixos-xx";
@@ -73,7 +74,6 @@
     LC_TELEPHONE = "ru_RU.UTF-8";
     LC_TIME = "ru_RU.UTF-8";
   };
-
 
   hardware.bluetooth = {
     enable = true;
@@ -114,7 +114,6 @@
     efi.canTouchEfiVariables = true;
   };
 
-
   # SYSTEM CFG
   environment.systemPackages = with pkgs; [
     git
@@ -122,7 +121,6 @@
     wget
     cachix
   ];
-
 
   # Everything after this point is kinda user settings but 
   # were stated here out of necessity
@@ -154,7 +152,6 @@
   virtualisation.virtualbox.host.enable = true;
   users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
 
-
   security.sudo.extraConfig = ''
     Defaults        timestamp_timeout=30
   '';
@@ -164,8 +161,8 @@
   programs.steam = {
     enable = true; # Couldn't install through home-manager lol cuz need some system stuff
     package = pkgs.steam.override {
-      extraLibraries = (pkgs:
-        with pkgs;[
+      extraLibraries = (
+        pkgs: with pkgs; [
           openssl
           nghttp2
           libidn2
@@ -183,7 +180,8 @@
           libvorbis
           stdenv.cc.cc.lib
           libkrb5
-        ]);
+        ]
+      );
     };
   };
 

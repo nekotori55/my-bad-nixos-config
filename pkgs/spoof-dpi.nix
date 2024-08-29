@@ -1,7 +1,4 @@
-{ buildGoModule
-, fetchFromGitHub
-,
-}:
+{ buildGoModule, fetchFromGitHub }:
 buildGoModule rec {
   pname = "SpoofDPI";
   version = "0.10.8";

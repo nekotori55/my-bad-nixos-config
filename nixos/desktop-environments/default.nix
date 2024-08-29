@@ -1,7 +1,5 @@
 {
-  imports = [
-    ./gnome.nix
-  ];
+  imports = [ ./gnome.nix ];
 
   # TODO DM selector option
   services.xserver = {

@@ -8,27 +8,25 @@
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
-  environment.systemPackages = (with pkgs; [
-    lshw #  sudo lshw -c display    # to check bus id's
+  environment.systemPackages =
+    (with pkgs; [
+      lshw # sudo lshw -c display    # to check bus id's
 
-    libva-utils
-    vdpauinfo
-    vulkan-tools
-    vulkan-validation-layers
-    libvdpau-va-gl
-    egl-wayland
-    wgpu-utils
-    mesa
-    libglvnd
-    nvtopPackages.full
-    nvitop
-    libGL
+      libva-utils
+      vdpauinfo
+      vulkan-tools
+      vulkan-validation-layers
+      libvdpau-va-gl
+      egl-wayland
+      wgpu-utils
+      mesa
+      libglvnd
+      nvtopPackages.full
+      nvitop
+      libGL
 
-  ])
-  ++
-  (with pkgs; [
-    vkdevicechooser
-  ]);
+    ])
+    ++ (with pkgs; [ vkdevicechooser ]);
 
   boot.kernelParams = [ "nvidia_drm.fbdev=1" ];
 
@@ -44,8 +42,6 @@
     };
 
     package = config.boot.kernelPackages.nvidiaPackages.beta;
-
-
 
     prime = {
       # option A: Offload Mode         // nvidia sleepy - amd worky; amd can ask nvidia for help (nvidia-offload)

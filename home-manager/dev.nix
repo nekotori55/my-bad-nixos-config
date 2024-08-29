@@ -1,8 +1,6 @@
 { pkgs, ... }:
 {
-  imports = [
-    ./vscode.nix
-  ];
+  imports = [ ./vscode.nix ];
 
   programs = {
     direnv = {
@@ -23,13 +21,11 @@
     };
   };
 
-
   home.packages = with pkgs; [
     docker-compose
     nixd
-    nixpkgs-fmt
+    nixfmt-rfc-style
     gitkraken
-
     linuxPackages_latest.perf
     hotspot
   ];
