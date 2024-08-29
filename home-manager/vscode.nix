@@ -73,6 +73,8 @@ let
       "window.restoreWindows" = "none";
       "git.enableSmartCommit" = true;
       "git.confirmSync" = false;
+      "explorer.confirmDelete"= false;
+
 
       # EXTENSIONS SETTINGS
       # 
