@@ -1,15 +1,16 @@
-# This is your system's configuration file.
-# Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
 { pkgs, outputs, ... }:
 {
-  # You can import other NixOS modules here
-  imports = [
-    outputs.nixosModules.gnomeMinimal
 
+  imports = [
     ./hardware-configuration.nix
     ./nvidia.nix
-    ./vm.nix
+    ./vm-specific.nix
     ./specialisations/on-the-go.nix
+
+    ./general.nix
+    ./gaming.nix
+
+    outputs.nixosModules.gnomeMinimal
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
@@ -31,7 +32,6 @@
     options = "--delete-older-than 15d";
   };
 
-  # HARDWARE CFG
   services.power-profiles-daemon.enable = false;
   services.auto-cpufreq.enable = true;
   services.auto-cpufreq.settings = {
@@ -43,12 +43,6 @@
       governor = "performance";
       turbo = "auto";
     };
-  };
-
-  services.ollama = {
-    enable = true;
-    acceleration = "cuda";
-    port = 11111;
   };
 
   # Add swap so no death on cpu-intense tasks
@@ -122,77 +116,6 @@
       useOSProber = true;
     };
     efi.canTouchEfiVariables = true;
-  };
-
-  # SYSTEM CFG
-  environment.systemPackages = with pkgs; [
-    git
-    vim
-    wget
-    cachix
-  ];
-
-  # Everything after this point is kinda user settings but 
-  # were stated here out of necessity
-  users.users = {
-    kefrnik = {
-      initialPassword = "aboba";
-      isNormalUser = true;
-      openssh.authorizedKeys.keys = [ ];
-      extraGroups = [ "wheel" ];
-    };
-  };
-
-  fonts.packages = with pkgs; [
-    fira-code
-    fira-code-symbols
-    corefonts
-    vistafonts
-    noto-fonts-cjk-sans
-  ];
-  fonts.enableDefaultPackages = true;
-
-  # Enable docker (rootless mode)
-  virtualisation.docker.enable = true;
-  virtualisation.docker.rootless = {
-    enable = true;
-    setSocketVariable = true;
-  };
-
-  virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
-
-  security.sudo.extraConfig = ''
-    Defaults        timestamp_timeout=30
-  '';
-
-  programs.gamemode.enable = true;
-
-  programs.steam = {
-    enable = true; # Couldn't install through home-manager lol cuz need some system stuff
-    package = pkgs.steam.override {
-      extraLibraries = (
-        pkgs: with pkgs; [
-          openssl
-          nghttp2
-          libidn2
-          rtmpdump
-          libpsl
-          curl
-          krb5
-          keyutils
-          xorg.libXcursor
-          xorg.libXi
-          xorg.libXinerama
-          xorg.libXScrnSaver
-          libpng
-          libpulseaudio
-          libvorbis
-          stdenv.cc.cc.lib
-          libkrb5
-        ]
-      );
-    };
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
