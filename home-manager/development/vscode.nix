@@ -1,6 +1,49 @@
 { pkgs, ... }:
 
 let
+  # VSCODE SETTINGS
+  vscodeSettings = {
+    # EDITOR SETTINGS
+    "editor.formatOnSave" = true;
+    "workbench.colorTheme" = "Gruvbox Dark Medium";
+    "window.restoreWindows" = "none";
+    "git.enableSmartCommit" = true;
+    "git.confirmSync" = false;
+    "explorer.confirmDelete" = false;
+
+    # EXTENSIONS SETTINGS
+    # 
+    # Nix IDE
+    "nix.enableLanguageServer" = true;
+    "nix.serverPath" = "nixd";
+    "nix.serverSettings" = {
+      "nixd" = {
+        "formatting" = {
+          "command" = "nixfmt";
+        };
+        "options" = {
+          "enable" = true;
+        };
+      };
+    };
+
+    # Python settings
+    "python.defaultInterpreterPath" = "\${env:PYTHONPATH}";
+
+    # Auto Run Command settings
+    "auto-run-command.rules" = [
+      {
+        "condition" = [ "always" ];
+        "command" = "python.clearWorkspaceInterpreter";
+        "message" = "Super condition met. Running";
+      }
+    ];
+
+    # direnv settings
+    "direnv.restart.automatic" = true;
+  };
+
+  # VSCODE EXTENSION LIST
   vscodeExtensions =
     with pkgs;
     (
@@ -68,46 +111,6 @@ let
       ]
     );
 
-  settings = {
-    # EDITOR SETTINGS
-    "editor.formatOnSave" = true;
-    "workbench.colorTheme" = "Gruvbox Dark Medium";
-    "window.restoreWindows" = "none";
-    "git.enableSmartCommit" = true;
-    "git.confirmSync" = false;
-    "explorer.confirmDelete" = false;
-
-    # EXTENSIONS SETTINGS
-    # 
-    # Nix IDE
-    "nix.enableLanguageServer" = true;
-    "nix.serverPath" = "nixd";
-    "nix.serverSettings" = {
-      "nixd" = {
-        "formatting" = {
-          "command" = "nixfmt";
-        };
-        "options" = {
-          "enable" = true;
-        };
-      };
-    };
-
-    # Python settings
-    "python.defaultInterpreterPath" = "\${env:PYTHONPATH}";
-
-    # Auto Run Command settings
-    "auto-run-command.rules" = [
-      {
-        "condition" = [ "always" ];
-        "command" = "python.clearWorkspaceInterpreter";
-        "message" = "Super condition met. Running";
-      }
-    ];
-
-    # direnv settings
-    "direnv.restart.automatic" = true;
-  };
 in
 {
   programs.vscode = {
@@ -115,9 +118,13 @@ in
     enableUpdateCheck = false;
     enableExtensionUpdateCheck = false;
     mutableExtensionsDir = false;
-    #package = pkgs.vscodium; # uncomment for vscodium
-
     extensions = vscodeExtensions;
-    userSettings = settings;
+    userSettings = vscodeSettings;
   };
+
+  # Additional packages (for example language server)
+  home.packages = with pkgs; [
+    nixd
+    nixfmt-rfc-style
+  ];
 }

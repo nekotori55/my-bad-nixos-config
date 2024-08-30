@@ -1,6 +1,6 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{ pkgs, ... }:
+{ pkgs, outputs, ... }:
 {
 
   home = {
@@ -11,8 +11,8 @@
   programs.home-manager.enable = true;
 
   imports = [
-    ./dev.nix
-    ./gnome.nix
+    ./desktop-environment/default.nix
+    ./development/default.nix
   ];
 
   home.packages = with pkgs; [
@@ -55,8 +55,7 @@
     };
   };
 
-  # Variables (doesn't work)
-  home.sessionVariables.NIXOS_OZONE_WL = "1";
+  # Session variables
   home.sessionVariables.EDITOR = "vim";
 
   # Services

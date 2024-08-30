@@ -1,9 +1,4 @@
-{ ... }:
-{
-  nixpkgs.overlays = [
-    (self: super: {
-      vkdevicechooser = super.callPackage ./vkdevicechooser.nix { };
-      spoof-dpi = super.callPackage ./spoof-dpi.nix { };
-    })
-  ];
+pkgs: {
+  vkdevicechooser = pkgs.callPackage ./vkdevicechooser.nix { };
+  spoof-dpi = pkgs.callPackage ./spoof-dpi.nix { };
 }

@@ -1,20 +1,25 @@
 # This is your system's configuration file.
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
-{ pkgs, ... }:
+{ pkgs, outputs, ... }:
 {
   # You can import other NixOS modules here
   imports = [
+    outputs.nixosModules.gnomeMinimal
+
     ./hardware-configuration.nix
-    ./desktop-environments/default.nix
     ./nvidia.nix
     ./vm.nix
-    ./on-the-go-specialisation.nix
+    ./specialisations/on-the-go.nix
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
-  # NIXOS CFG
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs = {
+    config.allowUnfree = true;
+    overlays = [
+      outputs.overlays.default
+    ];
+  };
 
   nix.settings.experimental-features = "nix-command flakes";
 
@@ -100,6 +105,11 @@
           "a2dp_sink"
           "a2dp_source"
         ];
+        "10-disable-camera" = {
+          "wireplumber.profiles" = {
+            main."monitor.libcamera" = "disabled";
+          };
+        };
       };
     };
   };

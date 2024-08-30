@@ -1,0 +1,3 @@
+{
+  gnomeMinimal = import ./gnome.nix;
+}
