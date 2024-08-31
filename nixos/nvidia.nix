@@ -47,7 +47,7 @@
       # option A: Offload Mode         // nvidia sleepy - amd worky; amd can ask nvidia for help (nvidia-offload)
       # https://nixos.wiki/wiki/Nvidia
       # offload = {
-      #   #  enable = true;
+      #   enable = true;
       #   enableOffloadCmd = true;
       # };
 
