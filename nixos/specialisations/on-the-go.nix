@@ -4,6 +4,9 @@
     on-the-go.configuration = {
       services.ollama.acceleration = lib.mkForce false;
 
+      # do not autostart docker containers on boot
+      virtualisation.docker.enableOnBoot = lib.mkForce false;
+
       system.nixos.tags = [ "on-the-go" ];
       hardware = {
         nvidia = {
