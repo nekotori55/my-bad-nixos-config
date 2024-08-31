@@ -51,11 +51,6 @@
     sha256 = "1angwl1knhjxv3hfr6dzrnm7xzkgxv6vbv8ny2bkmr9f9wk6mwd8";
   };
 
-  # home.file.".face".source = builtins.fetchurl {
-  #   url = "https://gravatar.com/avatar/97402f22d6027e8c6647e0b133b43db8?size=256";
-  #   sha256 = "1scp34vkpqdyfyvj4zyib4gs3rbjx23a0hkmmkf7kjwv23cwb229";
-  # };
-
   dconf = {
     enable = true;
 
