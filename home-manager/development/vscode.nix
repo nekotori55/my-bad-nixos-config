@@ -108,6 +108,14 @@ let
           version = "2024.1.34572442";
           sha256 = "sha256-yEffpXNmePpzZcX46dkK8Ic9gffZD+djlPx5HV3F2oE=";
         }
+
+        # Godot
+        {
+          name = "godot-tools";
+          publisher = "geequlim";
+          version = "2.1.0";
+          sha256 = "sha256-/0D4IJQXcjVtmX5gLKfEvviTQM595Y0EzCxlmVnsnJw=";
+        }
       ]
     );
 
