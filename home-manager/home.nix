@@ -53,6 +53,8 @@
         gh = "firefox --url github.com";
       };
     };
+
+    zathura.enable = true;
   };
 
   # Session variables
