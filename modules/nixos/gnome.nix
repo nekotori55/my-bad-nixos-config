@@ -10,7 +10,10 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [ gnome-tweaks ];
+  environment.systemPackages = with pkgs; [
+    gnome-tweaks
+    gnome-boxes
+  ];
 
   environment.gnome.excludePackages = (
     with pkgs;
