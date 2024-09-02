@@ -18,7 +18,8 @@
   nixpkgs = {
     config.allowUnfree = true;
     overlays = [
-      outputs.overlays.default
+      outputs.overlays.additions
+      outputs.overlays.modifications
     ];
   };
 

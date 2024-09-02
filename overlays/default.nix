@@ -1,4 +1,8 @@
 { ... }:
 {
-  default = final: _prev: import ../pkgs final.pkgs;
+  additions = final: _prev: import ../pkgs final.pkgs;
+
+  modifications = final: prev: {
+
+  };
 }
