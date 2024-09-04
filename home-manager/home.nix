@@ -23,6 +23,7 @@
 
     telegram-desktop
     vesktop
+    discord
 
     spotify
     kana
