@@ -11,8 +11,6 @@
     gnomeExtensions.appindicator
     gnomeExtensions.pop-shell
     gnomeExtensions.user-themes
-    gnomeExtensions.x11-gestures
-    gnomeExtensions.transparent-top-bar
     gnomeExtensions.gravatar
     gnomeExtensions.user-avatar-in-quick-settings
     gnomeExtensions.gamemode-shell-extension
