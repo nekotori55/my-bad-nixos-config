@@ -20,6 +20,11 @@
 
         bluetooth.powerOnBoot = lib.mkForce false;
       };
+
+      powerManagement.scsiLinkPolicy = "medium_power";
+      powerManagement.cpuFreqGovernor = "powersave";
+      powerManagement.enable = true;
+      powerManagement.powertop.enable = true;
     };
   };
 }
