@@ -1,6 +1,6 @@
 {
   imports = [
-    ./vscode.nix
+    ./vscode
     ./general.nix
   ];
 }
