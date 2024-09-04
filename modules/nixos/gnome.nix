@@ -15,6 +15,7 @@
     gnome-boxes
   ];
 
+  # TODO rewrite using special nixos options like gnome.games.enable
   environment.gnome.excludePackages = (
     with pkgs;
     [
