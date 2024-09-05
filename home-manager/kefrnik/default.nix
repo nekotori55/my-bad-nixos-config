@@ -15,7 +15,14 @@
     sha256 = "1angwl1knhjxv3hfr6dzrnm7xzkgxv6vbv8ny2bkmr9f9wk6mwd8";
   };
 
+  programs.git = {
+    enable = true;
+    userName = "Nekotori";
+    userEmail = "nekotori55@gmail.com";
+  };
+
   gnomeConfigs.enable = true;
+  development.enable = true;
 
   home.packages = with pkgs; [
     neofetch

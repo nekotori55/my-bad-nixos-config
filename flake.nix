@@ -64,6 +64,26 @@
             }
           ];
         };
+
+        hapoop = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs outputs;
+          };
+
+          modules = [
+            ./nixos/hosts/hadoop/hadoop.nix
+
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.extraSpecialArgs = {
+                inherit inputs outputs;
+              };
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.hadoop = import ./home-manager/hadoop;
+            }
+          ];
+        };
       };
     };
 }

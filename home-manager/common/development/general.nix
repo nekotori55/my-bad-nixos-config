@@ -1,27 +1,20 @@
-{ pkgs, ... }:
 {
-  programs = {
-    direnv = {
-      enable = true;
-      enableBashIntegration = true;
-      nix-direnv.enable = true;
-    };
+  pkgs,
+  config,
+  lib,
+  ...
+}:
+{
+  options.development.enable = lib.mkEnableOption "enable development";
+  config = lib.mkIf config.development.enable {
+    home.packages = with pkgs; [
+      gitkraken
+      linuxPackages_latest.perf
+      hotspot
+    ];
 
-    git = {
-      enable = true;
-      userName = "Nekotori";
-      userEmail = "nekotori55@gmail.com";
+    vscode.enable = true;
 
-      ignores = [
-        #".envrc"
-        "**/.direnv/**"
-      ];
-    };
+    programs.git.enable = true;
   };
-
-  home.packages = with pkgs; [
-    gitkraken
-    linuxPackages_latest.perf
-    hotspot
-  ];
 }
