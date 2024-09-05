@@ -20,7 +20,6 @@
   };
 
   home.packages = with pkgs; [
-    docker-compose
     gitkraken
     linuxPackages_latest.perf
     hotspot

@@ -50,8 +50,6 @@
 
           modules = [
             ./nixos/hosts/laptop-hp/configuration.nix
-            ./nixos/general.nix
-            ./nixos/gaming.nix
             ./cachix.nix
 
             home-manager.nixosModules.home-manager

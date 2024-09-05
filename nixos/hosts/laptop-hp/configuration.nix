@@ -6,7 +6,7 @@
     ./nvidia.nix
     ../vm/vm-specific.nix
     ./specialisations/on-the-go.nix
-    outputs.nixosModules.gnomeMinimal
+    ./module-settings.nix
   ];
 
   users.users = {

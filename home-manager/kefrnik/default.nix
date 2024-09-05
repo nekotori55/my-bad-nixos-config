@@ -15,6 +15,8 @@
     sha256 = "1angwl1knhjxv3hfr6dzrnm7xzkgxv6vbv8ny2bkmr9f9wk6mwd8";
   };
 
+  gnomeConfigs.enable = true;
+
   home.packages = with pkgs; [
     neofetch
     cowsay
