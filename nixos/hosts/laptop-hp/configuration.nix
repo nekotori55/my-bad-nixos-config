@@ -4,14 +4,19 @@
   imports = [
     ./hardware-configuration.nix
     ./nvidia.nix
-    ./vm-specific.nix
+    ../vm/vm-specific.nix
     ./specialisations/on-the-go.nix
-
-    ./general.nix
-    ./gaming.nix
-
     outputs.nixosModules.gnomeMinimal
   ];
+
+  users.users = {
+    kefrnik = {
+      initialPassword = "aboba";
+      isNormalUser = true;
+      openssh.authorizedKeys.keys = [ ];
+      extraGroups = [ "wheel" ];
+    };
+  };
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
 

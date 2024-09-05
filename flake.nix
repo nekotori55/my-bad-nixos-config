@@ -49,7 +49,9 @@
           };
 
           modules = [
-            ./nixos/configuration.nix
+            ./nixos/hosts/laptop-hp/configuration.nix
+            ./nixos/general.nix
+            ./nixos/gaming.nix
             ./cachix.nix
 
             home-manager.nixosModules.home-manager
@@ -59,7 +61,7 @@
               };
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.kefrnik = import ./home-manager/home.nix;
+              home-manager.users.kefrnik = import ./home-manager/kefrnik;
               home-manager.backupFileExtension = ".old";
             }
           ];

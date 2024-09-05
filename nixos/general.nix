@@ -8,15 +8,6 @@
     cachix
   ];
 
-  users.users = {
-    kefrnik = {
-      initialPassword = "aboba";
-      isNormalUser = true;
-      openssh.authorizedKeys.keys = [ ];
-      extraGroups = [ "wheel" ];
-    };
-  };
-
   # Fonts
   fonts.packages = with pkgs; [
     fira-code

@@ -1,5 +1,10 @@
-{ pkgs, config, ... }:
 {
+  pkgs,
+  config,
+  ...
+}:
+{
+  #config contents
   home.packages = with pkgs; [
 
     gtk-engine-murrine
@@ -16,6 +21,7 @@
     gnomeExtensions.gamemode-shell-extension
   ];
 
+  # Gnome theming
   gtk = {
     enable = true;
 
@@ -44,6 +50,7 @@
 
   home.sessionVariables.GTK_THEME = "Gruvbox-Dark";
 
+  # Gnome settings
   dconf = {
     enable = true;
 
@@ -128,4 +135,5 @@
         };
       };
   };
+
 }
