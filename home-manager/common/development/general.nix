@@ -14,6 +14,7 @@
     ];
 
     vscode.enable = true;
+    direnv.enable = true;
 
     programs.git.enable = true;
   };

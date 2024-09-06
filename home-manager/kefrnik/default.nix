@@ -79,7 +79,7 @@
       WantedBy = [ "default.target" ];
     };
     Service = {
-      ExecStart = "${pkgs.spoof-dpi}/bin/spoof-dpi";
+      ExecStart = "${pkgs.spoof-dpi}/bin/spoof-dpi -port 2112";
     };
   };
 
