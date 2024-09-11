@@ -45,6 +45,8 @@
     onlyoffice-bin
 
     alpaca
+
+    nekoray
   ];
 
   # Programs
