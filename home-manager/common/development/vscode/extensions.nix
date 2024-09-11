@@ -40,6 +40,12 @@ with pkgs;
       version = "5.2.12";
       sha256 = "5860c48b3606e9402a7b58e786f8df168b970c0f58af93fe063c4f6a1008b131";
     }
+    {
+      name = "hide-files";
+      publisher = "roonie007";
+      version = "1.0.3";
+      sha256 = "sha256-twqUwMpTv17XlBK5aZ0RvFdTF01o/cefWtcXs+E93n4=";
+    }
 
     # CLIPS (god save me)
     {
@@ -69,6 +75,14 @@ with pkgs;
       publisher = "geequlim";
       version = "2.1.0";
       sha256 = "sha256-/0D4IJQXcjVtmX5gLKfEvviTQM595Y0EzCxlmVnsnJw=";
+    }
+
+    # Web-related
+    {
+      name = "aurelia";
+      publisher = "aureliaeffect";
+      version = "2.1.4";
+      sha256 = "sha256-WV81lXKMjcddi8fGDMj0eICG7PhVd3CFnY9sr0jyqts=";
     }
   ]
 )
