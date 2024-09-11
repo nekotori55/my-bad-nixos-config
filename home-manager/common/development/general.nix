@@ -11,6 +11,8 @@
       gitkraken
       linuxPackages_latest.perf
       hotspot
+
+      jetbrains-toolbox
     ];
 
     vscode.enable = true;
