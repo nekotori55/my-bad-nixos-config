@@ -12,7 +12,7 @@
       linuxPackages_latest.perf
       hotspot
 
-      jetbrains-toolbox
+      jetbrains.idea-community-bin
     ];
 
     vscode.enable = true;
