@@ -47,6 +47,8 @@
     alpaca
 
     nekoray
+
+    yandex-disk
   ];
 
   # Programs
