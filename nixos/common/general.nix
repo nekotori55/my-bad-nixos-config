@@ -21,4 +21,6 @@
     noto-fonts-cjk-sans
   ];
   fonts.enableDefaultPackages = true;
+
+  programs.nh.enable = true;
 }

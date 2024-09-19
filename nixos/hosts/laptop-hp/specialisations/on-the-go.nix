@@ -2,6 +2,8 @@
 {
   specialisation = {
     on-the-go.configuration = {
+      environment.etc."specialisation".text = "on-the-go";
+
       services.ollama.acceleration = lib.mkForce false;
 
       # do not autostart docker containers on boot
