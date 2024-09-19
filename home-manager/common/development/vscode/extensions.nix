@@ -26,6 +26,12 @@ with pkgs;
     ms-vscode.cmake-tools
     twxs.cmake
 
+    # Docker
+    ms-azuretools.vscode-docker
+
+    # C#
+    ms-dotnettools.csdevkit
+
   ]
   ++ vscode-utils.extensionsFromVscodeMarketplace [
     {
