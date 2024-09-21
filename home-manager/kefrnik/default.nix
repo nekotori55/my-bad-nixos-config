@@ -11,8 +11,8 @@
 
   # Wallpaper
   home.file.".wallpaper.png".source = builtins.fetchurl {
-    url = "https://w.wallhaven.cc/full/qz/wallhaven-qz8pqd.png";
-    sha256 = "sha256:03cfv801yxmpz6kfd5a4cmcxv3xx375bd394295f51ci2zzah6v4";
+    url = "https://w.wallhaven.cc/full/gp/wallhaven-gpxvp7.jpg";
+    sha256 = "sha256:15wcjbi9mqrzm7ij8vkvyg3i4fhqsjar6n43ama9gplz7qnw852y";
   };
 
   programs.git = {
@@ -60,7 +60,7 @@
 
       shellAliases = {
         c = "code /etc/nixos";
-        s = "sudo nixos-rebuild switch";
+        s = "nh os switch";
         vm = "mkdir ~/nixos-vm-current; cd ~/nixos-vm-current; rm -rf *; sudo nixos-rebuild build-vm; result/bin/run-$HOSTNAME-vm";
 
         # Browser bookmarks :skull:
@@ -73,6 +73,7 @@
 
   # Session variables
   home.sessionVariables.EDITOR = "vim";
+  home.sessionVariables.FLAKE = "$HOME/.nix-config";
 
   # Services
   systemd.user.services.spoof-dpi-service = {
