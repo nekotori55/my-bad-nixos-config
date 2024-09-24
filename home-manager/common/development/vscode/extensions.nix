@@ -30,7 +30,9 @@ with pkgs;
     ms-azuretools.vscode-docker
 
     # C#
-    ms-dotnettools.csdevkit
+    ms-dotnettools.csharp
+    ms-dotnettools.vscode-dotnet-runtime
+    # ms-dotnettools.csdevkit
 
   ]
   ++ vscode-utils.extensionsFromVscodeMarketplace [
@@ -81,6 +83,18 @@ with pkgs;
       publisher = "geequlim";
       version = "2.1.0";
       sha256 = "sha256-/0D4IJQXcjVtmX5gLKfEvviTQM595Y0EzCxlmVnsnJw=";
+    }
+    {
+      name = "godot-csharp-vscode";
+      publisher = "neikeq";
+      version = "0.2.1";
+      sha256 = "sha256-sLsP+4deo/O8NjHGGXVdSOPWQPALypW/H0oZOMMM9RE=";
+    }
+    {
+      name = "mono-debug";
+      publisher = "ms-vscode";
+      version = "0.16.3";
+      sha256 = "sha256-6IU8aP4FQVbEMZAgssGiyqM+PAbwipxou5Wk3Q2mjZg=";
     }
 
     # Web-related
