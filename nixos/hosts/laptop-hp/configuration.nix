@@ -136,6 +136,22 @@
     efi.canTouchEfiVariables = true;
   };
 
+  # REQUIRED FOR NEKORAY TUN MODE TO WORK!!
+  services.resolved.enable = true;
+
+  security.polkit.enable = true;
+  security.polkit.extraConfig = ''
+    polkit.addRule(function(action, subject) {
+      if (
+        action.id == "org.freedesktop.policykit.exec" &&
+        (action.lookup("command_line").indexOf(' /home/' + subject.user + '/.config/nekoray/config/vpn-run-root.sh') !== -1)
+        )
+      {
+        return polkit.Result.YES;
+      }
+    });
+  '';
+
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";
 }
