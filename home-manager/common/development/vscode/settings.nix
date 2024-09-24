@@ -6,6 +6,7 @@
   "git.enableSmartCommit" = true;
   "git.confirmSync" = false;
   "explorer.confirmDelete" = false;
+  "extensions.ignoreRecommendations" = true;
 
   # EXTENSIONS SETTINGS
   # 
