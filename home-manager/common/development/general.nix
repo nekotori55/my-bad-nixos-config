@@ -13,6 +13,7 @@
       hotspot
 
       jetbrains.idea-community-bin
+      jetbrains.rider
     ];
 
     vscode.enable = true;
