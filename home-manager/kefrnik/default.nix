@@ -59,10 +59,12 @@
       enable = true; # allow homemanager to manage shell
 
       shellAliases = {
-        c = "code /etc/nixos";
-        s = "nh os switch";
+        config = "code /etc/nixos";
+        switch = "nh os switch";
+        test = "nh os test";
+        clean = "nh clean all";
+        search = "nh search";
         vm = "mkdir ~/nixos-vm-current; cd ~/nixos-vm-current; rm -rf *; sudo nixos-rebuild build-vm; result/bin/run-$HOSTNAME-vm";
-
         # Browser bookmarks :skull:
         gh = "firefox --url github.com";
       };
