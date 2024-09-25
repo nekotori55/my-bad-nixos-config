@@ -11,8 +11,8 @@
 
   # Wallpaper
   home.file.".wallpaper.png".source = builtins.fetchurl {
-    url = "https://w.wallhaven.cc/full/gp/wallhaven-gpxvp7.jpg";
-    sha256 = "sha256:15wcjbi9mqrzm7ij8vkvyg3i4fhqsjar6n43ama9gplz7qnw852y";
+    url = "https://w.wallhaven.cc/full/lq/wallhaven-lq5ovp.png";
+    sha256 = "sha256:0nyv7dy3pgxgay8wv9rbqjdf9kf35lc0s462zkbcgr3bpwf4qq2l";
   };
 
   programs.git = {
