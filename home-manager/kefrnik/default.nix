@@ -35,7 +35,6 @@
     discord
 
     spotify
-    kana
     ani-cli
 
     prismlauncher
@@ -49,6 +48,9 @@
     nekoray
 
     yandex-disk
+
+    kana
+    klavaro
   ];
 
   # Programs
