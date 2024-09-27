@@ -51,6 +51,8 @@
 
     kana
     klavaro
+
+    pandoc
   ];
 
   # Programs
