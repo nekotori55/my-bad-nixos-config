@@ -11,8 +11,8 @@
 
   # Wallpaper
   home.file.".wallpaper.png".source = builtins.fetchurl {
-    url = "https://w.wallhaven.cc/full/dp/wallhaven-dp62jl.png";
-    sha256 = "sha256:0bclfqx8cfv8m6xnvjcm9w059dgyls9m77xvp3zvp1czdfh68mgd";
+    url = "https://w.wallhaven.cc/full/zy/wallhaven-zyj8gw.jpg";
+    sha256 = "sha256:1q5jkc9jrvlln59vdvqy17dzl9x4c72bxw924fvgl6dh8fagv5jq";
   };
 
   programs.git = {
@@ -75,6 +75,9 @@
     };
 
     zathura.enable = true;
+    zathura.extraConfig = ''
+      set selection-clipboard clipboard
+    '';
   };
 
   # Session variables
