@@ -39,8 +39,6 @@
 
     prismlauncher
 
-    spoof-dpi
-
     onlyoffice-bin
 
     alpaca
@@ -83,19 +81,6 @@
   # Session variables
   home.sessionVariables.EDITOR = "vim";
   home.sessionVariables.FLAKE = "$HOME/.nix-config";
-
-  # Services
-  systemd.user.services.spoof-dpi-service = {
-    Unit = {
-      Description = "Start spoof-dpi";
-    };
-    Install = {
-      WantedBy = [ "default.target" ];
-    };
-    Service = {
-      ExecStart = "${pkgs.spoof-dpi}/bin/spoof-dpi -port 2112";
-    };
-  };
 
   # Custom desktop entries
   xdg.desktopEntries = {
