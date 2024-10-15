@@ -28,6 +28,7 @@
     neofetch
     cowsay
     firefox
+    vivaldi
     obsidian
 
     telegram-desktop

@@ -108,8 +108,8 @@
 
           "${keybind-base-path}/custom0" = {
             binding = "<Super>w";
-            command = "firefox";
-            name = "Firefox";
+            command = "vivaldi";
+            name = "Vivaldi";
           };
           "${keybind-base-path}/custom1" = {
             binding = "<Super>t";
