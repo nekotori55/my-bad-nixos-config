@@ -14,6 +14,7 @@
 
       jetbrains.idea-community-bin
       jetbrains.rider
+      jetbrains.goland
     ];
 
     vscode.enable = true;
