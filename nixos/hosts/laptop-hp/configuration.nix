@@ -136,6 +136,10 @@
     efi.canTouchEfiVariables = true;
   };
 
+  boot.supportedFilesystems = {
+    ntfs = true;
+  };
+
   # REQUIRED FOR NEKORAY TUN MODE TO WORK!!
   services.resolved.enable = true;
 
