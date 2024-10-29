@@ -30,8 +30,7 @@
     neofetch
     cowsay
 
-    # Browsers
-    firefox
+    # Browser
     vivaldi
 
     # Messagers
@@ -61,8 +60,6 @@
 
   # Programs
   programs = {
-    firefox.enable = true;
-
     bash = {
       enable = true; # allow homemanager to manage shell
 
@@ -73,8 +70,6 @@
         clean = "nh clean all";
         search = "nh search";
         vm = "mkdir ~/nixos-vm-current; cd ~/nixos-vm-current; rm -rf *; sudo nixos-rebuild build-vm; result/bin/run-$HOSTNAME-vm";
-        # Browser bookmarks :skull:
-        gh = "firefox --url github.com";
       };
     };
 
