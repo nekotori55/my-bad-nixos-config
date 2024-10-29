@@ -20,7 +20,7 @@
         #   powerManagement.finegrained = lib.mkForce true; # works on turing or newer (should check)
         # };
 
-        bluetooth.powerOnBoot = lib.mkForce false;
+        # bluetooth.powerOnBoot = lib.mkForce false;
       };
 
       powerManagement.scsiLinkPolicy = "medium_power";
