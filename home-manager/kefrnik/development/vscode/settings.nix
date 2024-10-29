@@ -38,4 +38,6 @@
 
   # direnv settings
   "direnv.restart.automatic" = true;
+
+  "vscord.behaviour.suppressNotifications" = true;
 }
