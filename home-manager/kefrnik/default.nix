@@ -26,33 +26,37 @@
   };
 
   home.packages = with pkgs; [
+    # Funny stuff
     neofetch
     cowsay
+
+    # Browsers
     firefox
     vivaldi
-    obsidian
 
+    # Messagers
     telegram-desktop
     vesktop
     discord
 
+    # Docs
+    obsidian
+    onlyoffice-bin
+    pandoc
+
+    # Entertainment
     spotify
     ani-cli
-
     prismlauncher
 
-    onlyoffice-bin
-
-    alpaca
-
-    nekoray
-
-    yandex-disk
-
+    # Learning
     kana
     klavaro
 
-    pandoc
+    # Other software
+    alpaca
+    nekoray
+    yandex-disk
   ];
 
   # Programs
