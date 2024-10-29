@@ -10,6 +10,9 @@
     ./development/default.nix
   ];
 
+  gnomeConfigs.enable = true;
+  development.enable = true;
+
   # Wallpaper
   home.file.".wallpaper.png".source = builtins.fetchurl {
     url = "https://w.wallhaven.cc/full/9d/wallhaven-9d161x.png";
@@ -21,9 +24,6 @@
     userName = "Nekotori";
     userEmail = "nekotori55@gmail.com";
   };
-
-  gnomeConfigs.enable = true;
-  development.enable = true;
 
   home.packages = with pkgs; [
     neofetch
