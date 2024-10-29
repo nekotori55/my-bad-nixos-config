@@ -10,6 +10,7 @@
     ./development/default.nix
   ];
 
+  # Modules switchers
   gnomeConfigs.enable = true;
   development.enable = true;
 
@@ -19,11 +20,17 @@
     sha256 = "sha256:0h25lg2hg0wnmc85s43rfqlayfghl38kkkiq3xbydr54n5yhvd5d";
   };
 
-  programs.git = {
-    enable = true;
-    userName = "Nekotori";
-    userEmail = "nekotori55@gmail.com";
+  # Session variables
+  home.sessionVariables = {
+    EDITOR = "vim";
+    FLAKE = "$HOME/.nix-config";
   };
+
+  # Allows nix-shell to download unfree packages
+  home.file.".config/nixpkgs/config.nix".text = "{ allowUnfree = true; }";
+
+  # Nicely reload system units when changing configs
+  systemd.user.startServices = "sd-switch";
 
   home.packages = with pkgs; [
     # Funny stuff
@@ -60,6 +67,12 @@
 
   # Programs
   programs = {
+    git = {
+      enable = true;
+      userName = "Nekotori";
+      userEmail = "nekotori55@gmail.com";
+    };
+
     bash = {
       enable = true; # allow homemanager to manage shell
 
@@ -79,10 +92,6 @@
     '';
   };
 
-  # Session variables
-  home.sessionVariables.EDITOR = "vim";
-  home.sessionVariables.FLAKE = "$HOME/.nix-config";
-
   # Custom desktop entries
   xdg.desktopEntries = {
     nixos-config = {
@@ -91,9 +100,6 @@
       icon = "nix-snowflake";
     };
   };
-
-  # Nicely reload system units when changing configs
-  systemd.user.startServices = "sd-switch";
 
   home.stateVersion = "23.05";
 }
