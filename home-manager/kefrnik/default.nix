@@ -16,8 +16,8 @@
 
   # Wallpaper
   home.file.".wallpaper.png".source = builtins.fetchurl {
-    url = "https://w.wallhaven.cc/full/m3/wallhaven-m37z18.png";
-    sha256 = "sha256:1yp3s9p95qs5zisqg1p4q6lwlgvl5cnm71dd8g9bbyb8nn9fv8wy";
+    url = "https://w.wallhaven.cc/full/d6/wallhaven-d6rkjj.png";
+    sha256 = "sha256:0cys7416aj40pk8dlpm48m5nify6g6pw0i4a86dya5w1cqrii3ni";
   };
 
   # Session variables
