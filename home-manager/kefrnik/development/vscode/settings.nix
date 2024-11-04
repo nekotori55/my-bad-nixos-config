@@ -7,6 +7,7 @@
   "git.confirmSync" = false;
   "explorer.confirmDelete" = false;
   "extensions.ignoreRecommendations" = true;
+  "editor.minimap.enabled" = false;
 
   # EXTENSIONS SETTINGS
   # 

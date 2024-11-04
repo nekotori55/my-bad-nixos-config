@@ -49,10 +49,16 @@ with pkgs;
       sha256 = "5860c48b3606e9402a7b58e786f8df168b970c0f58af93fe063c4f6a1008b131";
     }
     {
-      name = "hide-files";
-      publisher = "roonie007";
-      version = "1.0.3";
-      sha256 = "sha256-twqUwMpTv17XlBK5aZ0RvFdTF01o/cefWtcXs+E93n4=";
+      name = "workspace";
+      publisher = "fooxly";
+      version = "1.3.0";
+      sha256 = "sha256-hpbuz8b3g9oCv6IRBcg+bdDPXbVvBqtkxgyD43QNI44=";
+    }
+    {
+      name = "workspace-terminals";
+      publisher = "joshx";
+      version = "0.3.3";
+      sha256 = "sha256-TAY8LzO4VVHETcFhNBhUL+db7YO2ZuDMTduAYmmZ8pg=";
     }
 
     # CLIPS (god save me)
