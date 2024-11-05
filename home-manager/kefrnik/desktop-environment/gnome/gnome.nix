@@ -10,49 +10,13 @@
   config = lib.mkIf config.gnomeConfigs.enable {
     #config contents
     home.packages = with pkgs; [
-
-      gtk-engine-murrine
-      gruvbox-gtk-theme
-      sassc
-      gnome-themes-extra
-
       # Gnome extensions
       gnomeExtensions.appindicator
       gnomeExtensions.pop-shell
-      gnomeExtensions.user-themes
       gnomeExtensions.gravatar
       gnomeExtensions.user-avatar-in-quick-settings
       gnomeExtensions.gamemode-shell-extension
     ];
-
-    # Gnome theming
-    gtk = {
-      enable = true;
-
-      iconTheme = {
-        name = "oomox-gruvbox-dark";
-        package = pkgs.gruvbox-dark-icons-gtk;
-      };
-
-      cursorTheme = {
-        name = "graphite-dark";
-        package = pkgs.graphite-cursors;
-      };
-
-      gtk3.extraConfig = {
-        Settings = ''
-          gtk-application-prefer-dark-theme=1
-        '';
-      };
-
-      gtk4.extraConfig = {
-        Settings = ''
-          gtk-application-prefer-dark-theme=1
-        '';
-      };
-    };
-
-    home.sessionVariables.GTK_THEME = "Gruvbox-Dark";
 
     # Gnome settings
     dconf = {
