@@ -18,8 +18,21 @@
     ];
 
     vscode.enable = true;
-    direnv.enable = true;
 
-    programs.git.enable = true;
+    programs = {
+      direnv = {
+        enable = true;
+        enableBashIntegration = true;
+        nix-direnv.enable = true;
+      };
+
+      git = {
+        enable = true;
+        ignores = [
+          #".envrc"
+          "**/.direnv/**"
+        ];
+      };
+    };
   };
 }
