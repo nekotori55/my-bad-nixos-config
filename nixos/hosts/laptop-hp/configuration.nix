@@ -18,6 +18,8 @@
     };
   };
 
+  services.xserver.displayManager.gdm.enable = true;
+
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
   nixpkgs = {

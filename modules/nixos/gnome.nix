@@ -5,9 +5,6 @@
     enable = true;
     desktopManager.gnome.enable = true;
     excludePackages = [ pkgs.xterm ];
-    displayManager = {
-      gdm.enable = true;
-    };
   };
 
   environment.systemPackages = with pkgs; [
