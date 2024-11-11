@@ -33,6 +33,7 @@
     in
     {
       nixosModules = import ./modules/nixos;
+      homeManagerModules = import ./modules/home-manager;
       packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
       overlays = import ./overlays { };
 
