@@ -6,7 +6,11 @@
   osConfig,
   ...
 }:
+let
+  inherit (pkgs) gnomeExtensions;
+in
 {
+
   imports = [
     outputs.homeManagerModules.gnomeKeybindings
   ];
@@ -18,17 +22,14 @@
       # Enable gnome customisation using home-manager
       enable = true;
 
-      extensions =
-        let
-          extensions = pkgs.gnomeExtensions;
-        in
-        [
-          { package = extensions.appindicator; }
-          { package = extensions.pop-shell; }
-          { package = extensions.gravatar; }
-          { package = extensions.user-avatar-in-quick-settings; }
-          { package = extensions.blur-my-shell; }
-        ];
+      extensions = [
+        { package = gnomeExtensions.appindicator; }
+        { package = gnomeExtensions.pop-shell; }
+        { package = gnomeExtensions.gravatar; }
+        { package = gnomeExtensions.user-avatar-in-quick-settings; }
+        { package = gnomeExtensions.blur-my-shell; }
+        { package = gnomeExtensions.transparent-top-bar-adjustable-transparency; }
+      ];
 
       theme = {
         name = "Nordic-bluish-accent";
