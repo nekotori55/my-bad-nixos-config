@@ -1,7 +1,7 @@
 {
   # EDITOR SETTINGS
   "editor.formatOnSave" = true;
-  "workbench.colorTheme" = "Gruvbox Dark Medium";
+  "workbench.colorTheme" = "Nord Flat";
   "window.restoreWindows" = "none";
   "git.enableSmartCommit" = true;
   "git.confirmSync" = false;

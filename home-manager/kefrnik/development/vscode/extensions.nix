@@ -37,6 +37,18 @@ with pkgs;
   ]
   ++ vscode-utils.extensionsFromVscodeMarketplace [
     {
+      name = "nord-deep";
+      publisher = "marlosirapuan";
+      version = "0.1.625";
+      sha256 = "sha256-5QJ1zq5vc9PdJHTtpczR/Jf6aqi8qOx/6yUru4TLiQc=";
+    }
+    {
+      name = "nord-flat";
+      publisher = "3ash";
+      version = "0.5.75";
+      sha256 = "sha256-W2wdqe0JLyx2pPSB1CZC0Ps6OgP7CTFCcr7rvpg03Co=";
+    }
+    {
       name = "auto-run-command";
       publisher = "gabrielgrinberg";
       version = "1.6.0";
