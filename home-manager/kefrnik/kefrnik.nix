@@ -6,8 +6,6 @@
   };
 
   # Modules switchers
-  gnomeConfigs.enable = true;
-  gnomeConfigs.theme = "gruvbox-dark";
   development.enable = true;
 
   # Wallpaper

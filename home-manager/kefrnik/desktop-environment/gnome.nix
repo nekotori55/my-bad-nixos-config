@@ -3,6 +3,7 @@
   config,
   lib,
   outputs,
+  osConfig,
   ...
 }:
 {
@@ -10,22 +11,29 @@
     outputs.homeManagerModules.gnomeKeybindings
   ];
 
-  options.gnomeConfigs.enable = lib.mkEnableOption "enable gnome configs";
-
-  config = lib.mkIf config.gnomeConfigs.enable {
-    #config contents
-    home.packages = with pkgs; [
-      # Gnome extensions
-      gnomeExtensions.appindicator
-      gnomeExtensions.pop-shell
-      gnomeExtensions.gravatar
-      gnomeExtensions.user-avatar-in-quick-settings
-      gnomeExtensions.gamemode-shell-extension
-    ];
+  # If gnome is enabled on the system
+  config = lib.mkIf osConfig.services.xserver.desktopManager.gnome.enable {
 
     programs.gnome-shell = {
       # Enable gnome customisation using home-manager
       enable = true;
+
+      extensions =
+        let
+          extensions = pkgs.gnomeExtensions;
+        in
+        [
+          { package = extensions.appindicator; }
+          { package = extensions.pop-shell; }
+          { package = extensions.gravatar; }
+          { package = extensions.user-avatar-in-quick-settings; }
+          { package = extensions.blur-my-shell; }
+        ];
+
+      theme = {
+        name = "Nordic-bluish-accent";
+        package = pkgs.nordic;
+      };
 
       # Create custom keybindings
       custom-keybindings = {
@@ -57,25 +65,11 @@
       };
     };
 
-    # Gnome settings
+    # Other settings
     dconf = {
       enable = true;
 
       settings = {
-        "org/gnome/shell" = {
-          disable-user-extensions = false;
-          enabled-extensions = with pkgs.gnomeExtensions; [
-            appindicator.extensionUuid
-            pop-shell.extensionUuid
-            user-themes.extensionUuid
-            x11-gestures.extensionUuid
-            transparent-top-bar.extensionUuid
-            gravatar.extensionUuid
-            user-avatar-in-quick-settings.extensionUuid
-            gamemode-shell-extension.extensionUuid
-          ];
-        };
-
         "org/gnome/desktop/background" =
           let
             username = config.home.username;
@@ -86,6 +80,8 @@
             picture-uri-dark = "${bg}";
           };
 
+        # set time before gnome shows "app is not responding" window
+        # must-have if you play modded minecraft :P
         "org/gnome/mutter" = {
           check-alive-timeout = 60000;
         };
