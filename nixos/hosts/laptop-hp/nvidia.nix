@@ -36,6 +36,10 @@
 
     boot.kernelParams = [ "nvidia_drm.fbdev=1" ];
 
+    environment.sessionVariables = {
+      GSK_RENDERER = "cairo";
+    };
+
     hardware.nvidia = {
       modesetting.enable = true;
       open = true; # just better
