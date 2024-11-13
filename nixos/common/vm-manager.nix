@@ -10,5 +10,6 @@
     # virt-manager + gnome boxes
     programs.virt-manager.enable = true;
     virtualisation.libvirtd.enable = true;
+    virtualisation.vmware.host.enable = true;
   };
 }
