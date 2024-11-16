@@ -37,7 +37,6 @@
     # Messagers
     telegram-desktop
     vesktop
-    discord
 
     # Docs
     obsidian
