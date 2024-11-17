@@ -35,7 +35,6 @@
       nixosModules = import ./modules/nixos;
       homeManagerModules = import ./modules/home-manager;
       packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
-      overlays = import ./overlays { };
 
       nixpkgs = {
         config = {
@@ -52,6 +51,7 @@
           modules = [
             ./nixos/hosts/laptop-hp/configuration.nix
             ./cachix.nix
+            ./overlays
 
             home-manager.nixosModules.home-manager
             {

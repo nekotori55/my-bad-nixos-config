@@ -1,4 +1,4 @@
-{ pkgs, outputs, ... }:
+{ pkgs, ... }:
 {
 
   imports = [
@@ -21,14 +21,6 @@
   services.xserver.displayManager.gdm.enable = true;
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
-
-  nixpkgs = {
-    config.allowUnfree = true;
-    overlays = [
-      outputs.overlays.additions
-      outputs.overlays.modifications
-    ];
-  };
 
   nix.settings.experimental-features = "nix-command flakes";
 
