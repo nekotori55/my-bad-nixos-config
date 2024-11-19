@@ -45,7 +45,7 @@ in
 
         terminal = {
           binding = "<Super>t";
-          command = "kgx";
+          command = "alacritty";
         };
 
         explorer = {
