@@ -77,9 +77,42 @@
         search = "nh search";
         vm = "mkdir ~/nixos-vm-current; cd ~/nixos-vm-current; rm -rf *; sudo nixos-rebuild build-vm; result/bin/run-$HOSTNAME-vm";
       };
+
+      bashrcExtra = ''
+              if [ -x "$(command -v tmux)" ] && [ -n "''${DISPLAY}" ] && [ -z "''${TMUX}" ]; then
+            exec tmux new-session -A -s ''${USER} >/dev/null 2>&1
+        fi
+      '';
     };
 
     alacritty.enable = true;
+
+    tmux = {
+      enable = true;
+      shortcut = "a";
+      # aggressiveResize = true; -- Disabled to be iTerm-friendly
+      baseIndex = 1;
+      newSession = true;
+      escapeTime = 0;
+      clock24 = true;
+      terminal = "screen-256color";
+
+      plugins = with pkgs; [
+        tmuxPlugins.better-mouse-mode
+      ];
+
+      extraConfig = ''
+        # https://old.reddit.com/r/tmux/comments/mesrci/tmux_2_doesnt_seem_to_use_256_colors/
+        set-environment -g COLORTERM "truecolor"
+
+        # Mouse works as expected
+        set-option -g mouse on
+        # easy-to-remember split pane commands
+        bind | split-window -h -c "#{pane_current_path}"
+        bind - split-window -v -c "#{pane_current_path}"
+        bind c new-window -c "#{pane_current_path}"
+      '';
+    };
 
     zathura.enable = true;
     zathura.extraConfig = ''
