@@ -93,7 +93,7 @@
       # aggressiveResize = true; -- Disabled to be iTerm-friendly
       baseIndex = 1;
       newSession = true;
-      escapeTime = 0;
+      escapeTime = 50;
       clock24 = true;
       terminal = "screen-256color";
 
