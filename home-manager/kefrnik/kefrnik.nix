@@ -51,6 +51,7 @@
     # Learning
     kana
     klavaro
+    anki-bin
 
     # Other software
     alpaca
