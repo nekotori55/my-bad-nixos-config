@@ -57,6 +57,7 @@
     alpaca
     nekoray
     yandex-disk
+    ciscoPacketTracer8
   ];
 
   # Programs
