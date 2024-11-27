@@ -8,6 +8,7 @@
   "explorer.confirmDelete" = false;
   "extensions.ignoreRecommendations" = true;
   "editor.minimap.enabled" = false;
+  "window.menuBarVisibility" = "toggle";
 
   # EXTENSIONS SETTINGS
   # 
