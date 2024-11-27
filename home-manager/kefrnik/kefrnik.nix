@@ -71,11 +71,7 @@
       enable = true; # allow homemanager to manage shell
 
       shellAliases = {
-        config = "code /etc/nixos";
-        switch = "nh os switch";
-        test = "nh os test";
-        clean = "nh clean all";
-        search = "nh search";
+        sconfig = "code /etc/nixos";
         vm = "mkdir ~/nixos-vm-current; cd ~/nixos-vm-current; rm -rf *; sudo nixos-rebuild build-vm; result/bin/run-$HOSTNAME-vm";
       };
 
