@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   home = {
     username = "kefrnik";
@@ -59,6 +59,7 @@
     yandex-disk
     alacritty-theme
   ];
+
   fonts.fontconfig.enable = true;
 
   # Programs
@@ -84,6 +85,12 @@
       '';
     };
 
+    fish = {
+      enable = true;
+      shellAliases = config.programs.bash.shellAliases;
+
+    };
+
     alacritty = {
       enable = true;
       settings = {
@@ -107,6 +114,11 @@
 
         # env.term = "xterm-256color";
       };
+    };
+
+    starship = {
+      enable = true;
+      enableFishIntegration = true;
     };
 
     tmux = {
