@@ -108,7 +108,7 @@
         window = {
           padding = {
             x = 10;
-            y = 10;
+            y = 0;
           };
           dynamic_padding = true;
           decorations = "None";
