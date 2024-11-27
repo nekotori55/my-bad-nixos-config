@@ -88,7 +88,9 @@
     fish = {
       enable = true;
       shellAliases = config.programs.bash.shellAliases;
-
+      interactiveShellInit = ''
+        set fish_greeting # Disable greeting
+      '';
     };
 
     alacritty = {
