@@ -57,7 +57,9 @@
     alpaca
     nekoray
     yandex-disk
+    alacritty-theme
   ];
+  fonts.fontconfig.enable = true;
 
   # Programs
   programs = {
@@ -82,7 +84,30 @@
       '';
     };
 
-    alacritty.enable = true;
+    alacritty = {
+      enable = true;
+      settings = {
+        general.import = [ "${pkgs.alacritty-theme}/nord.toml" ];
+        font = {
+          normal = {
+            family = "Hack Nerd Font Mono";
+            style = "Regular";
+
+          };
+        };
+
+        window = {
+          padding = {
+            x = 10;
+            y = 10;
+          };
+          dynamic_padding = true;
+          decorations = "None";
+        };
+
+        # env.term = "xterm-256color";
+      };
+    };
 
     tmux = {
       enable = true;
@@ -92,7 +117,8 @@
       newSession = true;
       escapeTime = 50;
       clock24 = true;
-      terminal = "screen-256color";
+      # terminal = "xterm-256color";
+      shell = "${pkgs.fish}/bin/fish";
 
       plugins = with pkgs; [
         tmuxPlugins.better-mouse-mode
@@ -100,7 +126,6 @@
 
       extraConfig = ''
         # https://old.reddit.com/r/tmux/comments/mesrci/tmux_2_doesnt_seem_to_use_256_colors/
-        set-environment -g COLORTERM "truecolor"
 
         # Mouse works as expected
         set-option -g mouse on
