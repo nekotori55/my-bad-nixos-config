@@ -9,10 +9,18 @@
 
   config = lib.mkIf config.docker.enable {
     environment.systemPackages = [ pkgs.docker-compose ];
-    virtualisation.docker.enable = true;
-    virtualisation.docker.rootless = {
+    virtualisation.docker = {
       enable = true;
-      setSocketVariable = true;
+      rootless = {
+        enable = true;
+        setSocketVariable = true;
+        daemon.settings = {
+          dns = [
+            "8.8.8.8"
+            "8.8.4.4"
+          ];
+        };
+      };
     };
   };
 }
