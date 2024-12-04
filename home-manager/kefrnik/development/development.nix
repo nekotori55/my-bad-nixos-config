@@ -29,6 +29,14 @@
           #".envrc"
           "**/.direnv/**"
         ];
+        includes = [
+          {
+            condition = "gitdir:~/s";
+            contents = {
+              core.filemode = false;
+            };
+          }
+        ];
       };
     };
   };
