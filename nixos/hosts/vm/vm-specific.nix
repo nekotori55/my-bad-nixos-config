@@ -1,6 +1,6 @@
 {
-  services.spice-vdagentd.enable = true;
   virtualisation.vmVariant = {
+    services.spice-vdagentd.enable = true;
     # following configuration is added only when building VM with build-vm
     virtualisation = {
       diskSize = 5192;
