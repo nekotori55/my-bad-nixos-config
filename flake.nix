@@ -43,13 +43,13 @@
       };
 
       nixosConfigurations = {
-        nixos-xx = nixpkgs.lib.nixosSystem {
+        photon = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs outputs;
           };
 
           modules = [
-            ./nixos/hosts/laptop-hp/configuration.nix
+            ./nixos/hosts/photon/configuration.nix
             ./cachix.nix
             ./overlays
 
@@ -60,7 +60,30 @@
               };
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.kefrnik = import ./home-manager/kefrnik;
+              home-manager.users.nekotori55 = import ./home/nekotori55;
+              home-manager.backupFileExtension = ".old";
+            }
+          ];
+        };
+
+        gluon = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs outputs;
+          };
+
+          modules = [
+            ./nixos/hosts/gluon/configuration.nix
+            ./cachix.nix
+            ./overlays
+
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.extraSpecialArgs = {
+                inherit inputs outputs;
+              };
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.nekotori55 = import ./home/nekotori55;
               home-manager.backupFileExtension = ".old";
             }
           ];

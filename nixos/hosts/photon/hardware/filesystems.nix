@@ -13,7 +13,7 @@
     ];
   };
 
-  fileSystems."/home/kefrnik/s" = {
+  fileSystems."/home/nekotori55/s" = {
     device = "/dev/disk/by-uuid/D24E302A4E300A2D";
     fsType = "ntfs";
     options = [

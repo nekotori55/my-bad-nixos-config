@@ -1,6 +1,6 @@
 { lib, ... }:
 {
-  networking.hostName = "nixos-xx";
+  networking.hostName = "photon";
   networking.useDHCP = lib.mkDefault true;
 
   # REQUIRED FOR NEKORAY TUN MODE TO WORK!!
