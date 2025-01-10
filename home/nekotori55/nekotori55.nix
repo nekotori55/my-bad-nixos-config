@@ -17,7 +17,7 @@
   # Session variables
   home.sessionVariables = {
     EDITOR = "vim";
-    FLAKE = "$HOME/.nix-config";
+    FLAKE = "$HOME/.nixos-config";
   };
 
   # Allows nix-shell to download unfree packages
