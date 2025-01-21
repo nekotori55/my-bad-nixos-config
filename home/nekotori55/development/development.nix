@@ -9,9 +9,9 @@
   config = lib.mkIf config.development.enable {
     home.packages = with pkgs; [
       gitkraken
-      jetbrains.idea-community-bin
-      jetbrains.rider
-      jetbrains.goland
+      # jetbrains.idea-community-bin
+      # jetbrains.rider
+      # jetbrains.goland
     ];
 
     vscode.enable = true;
