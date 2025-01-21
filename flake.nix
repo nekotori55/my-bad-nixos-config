@@ -34,6 +34,7 @@
     {
       nixosModules = import ./modules/nixos;
       homeManagerModules = import ./modules/home-manager;
+
       packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
 
       nixpkgs = {
@@ -49,6 +50,7 @@
           };
 
           modules = [
+            ./modules/options
             ./nixos/hosts/photon/configuration.nix
             ./cachix.nix
             ./overlays
@@ -62,6 +64,9 @@
               home-manager.useUserPackages = true;
               home-manager.users.nekotori55 = import ./home/nekotori55;
               home-manager.backupFileExtension = ".old";
+              home-manager.modules = [
+                ./modules/home-manager
+              ];
             }
           ];
         };
@@ -72,6 +77,7 @@
           };
 
           modules = [
+            ./modules/options
             ./nixos/hosts/gluon/configuration.nix
             ./cachix.nix
             ./overlays
