@@ -15,17 +15,19 @@ in
           folder-base-path = "${base-path}/folders";
         in
         {
-          "${base-path}/folder-children" = [
-            "internet"
-            "games"
-            "accessories"
-            "graphics"
-            "office"
-            "programming"
-            "science"
-            "sound-video"
-            "system-tools"
-          ];
+          "${base-path}" = {
+            folder-children = [
+              "internet"
+              "games"
+              "accessories"
+              "graphics"
+              "office"
+              "programming"
+              "science"
+              "sound-video"
+              "system-tools"
+            ];
+          };
 
           "${folder-base-path}/internet" = {
             name = "Internet";

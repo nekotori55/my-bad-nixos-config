@@ -20,7 +20,7 @@
       corefonts
       vistafonts
       noto-fonts-cjk-sans
-      nerdfonts
+      nerd-fonts.hack
     ];
 
     fontDir.enable = true;
@@ -52,7 +52,6 @@
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_GB.UTF-8";
   };
-
 
   programs.nh.enable = true;
 }

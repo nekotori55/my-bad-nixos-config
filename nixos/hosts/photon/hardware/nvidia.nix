@@ -34,7 +34,9 @@
       ])
       ++ (with pkgs; [ vkdevicechooser ]);
 
-    boot.kernelParams = [ "nvidia_drm.fbdev=1" ];
+    boot.kernelParams = [
+      "nvidia_drm.fbdev=1"
+    ];
 
     environment.sessionVariables = {
       GSK_RENDERER = "cairo";
