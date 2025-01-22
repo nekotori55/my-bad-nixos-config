@@ -12,26 +12,16 @@
     gnome-boxes
   ];
 
+  services.gnome = {
+    core-utilities.enable = false;
+    games.enable = false;
+  };
+
   # TODO rewrite using special nixos options like gnome.games.enable
   environment.gnome.excludePackages = (
     with pkgs;
     [
-      gnome-photos
       gnome-tour
-      cheese # webcam tool
-      gnome-music
-      gnome-weather
-      gnome-contacts
-      yelp
-      epiphany # web browser
-      # geary # email reader
-      evince # document viewer
-      gnome-characters
-      totem # video player
-      tali # poker game
-      iagno # go game
-      hitori # sudoku game
-      atomix # puzzle game
     ]
   );
 

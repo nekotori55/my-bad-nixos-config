@@ -1,7 +1,6 @@
 { outputs, lib, ... }:
 {
   imports = [
-    outputs.nixosModules.gnomeMinimal
 
     ./hardware
 

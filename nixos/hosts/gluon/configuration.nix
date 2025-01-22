@@ -1,7 +1,6 @@
 { outputs, lib, ... }:
 {
   imports = [
-    outputs.nixosModules.gnomeMinimal
 
     ./hardware
 
@@ -9,7 +8,6 @@
 
     ../../common
   ];
-
 
   users.users = {
     nekotori55 = {

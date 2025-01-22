@@ -1,3 +1,5 @@
 {
-  gnomeMinimal = import ./gnome.nix;
+  imports = [
+    ./gnome.nix
+  ];
 }

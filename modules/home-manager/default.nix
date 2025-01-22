@@ -1,3 +1,6 @@
 {
-  gnomeKeybindings = import ./gnome-keybinds.nix;
+  imports = [
+    ./gnome-keybinds.nix
+    ./gnome-app-grouping.nix
+  ];
 }

@@ -8,7 +8,8 @@ let
 in
 {
   programs.gnome-shell = {
-    gnome-shell.enable = true;
+    enable = true;
+    autogroup-apps = true;
 
     extensions = [
       { package = gnomeExtensions.appindicator; }
@@ -50,7 +51,6 @@ in
         binding = "<Super>c";
         command = "code /etc/nixos/";
       };
-
     };
   };
 

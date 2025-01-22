@@ -32,8 +32,8 @@
       forAllSystems = nixpkgs.lib.genAttrs systems;
     in
     {
-      nixosModules = import ./modules/nixos;
-      homeManagerModules = import ./modules/home-manager;
+      # nixosModules = import ./modules/nixos;
+      # homeManagerModules = import ./modules/home-manager;
 
       packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
 
@@ -51,6 +51,7 @@
 
           modules = [
             ./modules/options
+            ./modules/nixos
             ./nixos/hosts/photon/configuration.nix
             ./cachix.nix
             ./overlays
@@ -64,7 +65,7 @@
               home-manager.useUserPackages = true;
               home-manager.users.nekotori55 = import ./home/nekotori55;
               home-manager.backupFileExtension = ".old";
-              home-manager.modules = [
+              home-manager.sharedModules = [
                 ./modules/home-manager
               ];
             }
@@ -78,6 +79,7 @@
 
           modules = [
             ./modules/options
+            ./modules/nixos
             ./nixos/hosts/gluon/configuration.nix
             ./cachix.nix
             ./overlays
