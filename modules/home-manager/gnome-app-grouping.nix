@@ -26,6 +26,7 @@ in
               "science"
               "sound-video"
               "system-tools"
+              "education"
             ];
           };
 
@@ -94,6 +95,13 @@ in
             categories = [
               "System"
               "Settings"
+            ];
+          };
+
+          "${folder-base-path}/education" = {
+            name = "Education";
+            categories = [
+              "Education"
             ];
           };
         };
