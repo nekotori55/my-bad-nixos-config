@@ -1,4 +1,4 @@
-{ pkgs, config,  ...}:
+{ pkgs, config, ... }:
 {
   programs = {
 
@@ -44,7 +44,7 @@
             y = 0;
           };
           dynamic_padding = true;
-          decorations = "None";
+          # decorations = "None";
         };
 
         # env.term = "xterm-256color";

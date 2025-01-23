@@ -1,20 +1,12 @@
 {
   pkgs,
-  config,
+  osConfig,
   lib,
   ...
 }:
 {
-  options.development.enable = lib.mkEnableOption "enable development";
-  config = lib.mkIf config.development.enable {
-    home.packages = with pkgs; [
-      gitkraken
-      # jetbrains.idea-community-bin
-      # jetbrains.rider
-      # jetbrains.goland
-    ];
-
-    vscode.enable = true;
+  config = lib.mkIf osConfig.usrEnv.development.enable {
+    home.packages = with pkgs; [ ];
 
     programs = {
       direnv = {
@@ -28,14 +20,6 @@
         ignores = [
           #".envrc"
           "**/.direnv/**"
-        ];
-        includes = [
-          {
-            condition = "gitdir:~/s";
-            contents = {
-              core.filemode = false;
-            };
-          }
         ];
       };
     };

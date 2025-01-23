@@ -6,7 +6,6 @@
 
     ../vm/vm-specific.nix
 
-    ../../common
   ];
 
   users.users = {

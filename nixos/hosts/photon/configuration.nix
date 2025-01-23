@@ -7,7 +7,6 @@
     ../vm/vm-specific.nix
     ./specialisations/on-the-go.nix
 
-    ../../common
   ];
 
   vm-manager.enable = true;

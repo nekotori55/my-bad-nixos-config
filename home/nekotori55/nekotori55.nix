@@ -1,12 +1,9 @@
-{ pkgs, config, ... }:
+{ pkgs, osConfig, ... }:
 {
   home = {
     username = "nekotori55";
     homeDirectory = "/home/nekotori55";
   };
-
-  # Modules switchers
-  development.enable = true;
 
   # Wallpaper
   home.file.".wallpaper.png".source = builtins.fetchurl {
@@ -26,39 +23,36 @@
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
-  home.packages = with pkgs; [
-    # Funny stuff
-    neofetch
-    cowsay
+  home.packages =
+    with pkgs;
+    [
+      # Browser
+      vivaldi
 
-    # Browser
-    vivaldi
+      # Messagers
+      telegram-desktop
 
-    # Messagers
-    telegram-desktop
-    vesktop
+      # Docs
+      obsidian
 
-    # Docs
-    obsidian
-    onlyoffice-bin
-    pandoc
+      alacritty-theme
+    ]
+    ++ lib.optionals (osConfig.usrEnv.personal) [
+      # Other software
+      alpaca
+      nekoray
+      vesktop
 
-    # Entertainment
-    spotify
-    ani-cli
-    prismlauncher
+      # Learning
+      kana
+      klavaro
+      anki-bin
 
-    # Learning
-    kana
-    klavaro
-    anki-bin
-
-    # Other software
-    alpaca
-    nekoray
-    yandex-disk
-    alacritty-theme
-  ];
+      # Entertainment
+      spotify
+      ani-cli
+      prismlauncher
+    ];
 
   fonts.fontconfig.enable = true;
 
@@ -68,6 +62,13 @@
       enable = true;
       userName = "Nekotori";
       userEmail = "nekotori55@gmail.com";
+
+      includes = [
+        {
+          condition = "gitdir:~/work/";
+          path = "~/work/.gitconfig";
+        }
+      ];
     };
 
     zathura.enable = true;
