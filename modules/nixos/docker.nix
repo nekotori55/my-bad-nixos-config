@@ -6,7 +6,7 @@
 }:
 {
 
-  config = lib.mkIf config.docker.enable {
+  config = lib.mkIf config.modules.docker.enable {
     environment.systemPackages = [ pkgs.docker-compose ];
     virtualisation.docker = {
       enable = true;

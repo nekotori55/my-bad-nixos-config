@@ -11,8 +11,12 @@
 
   vm-manager.enable = true;
   ai.enable = true;
-  docker.enable = true;
+  modules.docker.enable = true;
   gaming.enable = true;
+
+  usrEnv.personal = true;
+  usrEnv.development.enable = true;
+  usrEnv.development.vscode.enable = true;
 
   users.users = {
     nekotori55 = {

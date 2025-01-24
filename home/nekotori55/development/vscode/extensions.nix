@@ -1,4 +1,4 @@
-pkgs:
+{ pkgs, config }:
 with pkgs;
 (
   with vscode-extensions;
@@ -12,7 +12,7 @@ with pkgs;
     dracula-theme.theme-dracula
     jdinhlife.gruvbox
   ]
-  ++ lib.optionals (config.modules.docker.enable) [
+  ++ lib.optionals ( config.modules.docker.enable ) [
     # Docker
     ms-azuretools.vscode-docker
   ]

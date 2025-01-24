@@ -7,7 +7,7 @@
 
 let
   vscode-settings = import ./settings.nix;
-  vscode-extensions = import ./extensions.nix pkgs;
+  vscode-extensions = import ./extensions.nix { pkgs config };
 
 in
 {
