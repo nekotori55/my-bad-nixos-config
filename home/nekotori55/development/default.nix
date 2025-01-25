@@ -1,6 +1,6 @@
 {
   imports = [
-    ./vscode
-    ./development.nix
+    ./vscode.nix
+    ./direnv.nix
   ];
 }

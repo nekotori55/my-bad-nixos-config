@@ -1,10 +1,11 @@
 {
   imports = [
     ./gnome.nix
-    ./ai.nix
+    ./llm.nix
     ./docker.nix
     ./gaming.nix
     ./common.nix
-    ./vm-manager.nix
+    ./vm-host.nix
+    ./vpn.nix
   ];
 }

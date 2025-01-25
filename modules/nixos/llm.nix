@@ -1,8 +1,6 @@
 { config, lib, ... }:
 {
-  options.ai.enable = lib.mkEnableOption "enable ollama module";
-
-  config = lib.mkIf config.ai.enable {
+  config = lib.mkIf config.modules.llm.enable {
 
     # Ollama
     services.ollama = {

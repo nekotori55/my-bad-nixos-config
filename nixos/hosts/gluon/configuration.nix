@@ -1,11 +1,8 @@
 { outputs, lib, ... }:
 {
   imports = [
-
     ./hardware
-
     ../vm/vm-specific.nix
-
   ];
 
   users.users = {

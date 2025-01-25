@@ -8,23 +8,23 @@ in
       gnome = {
         enable = mkEnableOption "Enable gnome";
       };
-      hyprland = {
-        enable = mkEnableOption "Enable hyprland";
+      bspwm = {
+        enable = mkEnableOption "Enable bspwm";
       };
     };
 
     docker.enable = mkEnableOption "Enable docker";
+    vm-host.enable = mkEnableOption "Enable vm host programs";
+    llm.enable = mkEnableOption "Enable Local Language Models";
+    gaming.enable = mkEnableOption "Enable gaming module";
+    vpn = {
+      enable = mkEnableOption "Enable vpn";
+      autostart = mkEnableOption "Autostart vpn on boot";
+    };
   };
 
   options.usrEnv = {
     blocked-apps = mkEnableOption "Enable download of blocked apps";
-
-    development = {
-      enable = mkEnableOption "enable dev module";
-      vscode = {
-        enable = mkEnableOption "Enable vscode";
-      };
-    };
 
     personal = mkEnableOption "Is this host for personal usage";
 

@@ -9,14 +9,14 @@
 
   ];
 
-  vm-manager.enable = true;
-  ai.enable = true;
-  modules.docker.enable = true;
-  gaming.enable = true;
-
   usrEnv.personal = true;
-  usrEnv.development.enable = true;
-  usrEnv.development.vscode.enable = true;
+
+  modules.desktop.gnome.enable = true;
+  modules.vm-host.enable = true;
+  modules.llm.enable = true;
+  modules.docker.enable = true;
+  modules.gaming.enable = true;
+  modules.vpn.enable = true;
 
   users.users = {
     nekotori55 = {
@@ -42,18 +42,6 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
   # to autostart nekoray tun mode without sudo prompt
-  security.polkit.enable = true;
-  security.polkit.extraConfig = ''
-    polkit.addRule(function(action, subject) {
-      if (
-        action.id == "org.freedesktop.policykit.exec" &&
-        (action.lookup("command_line").indexOf(' /home/' + subject.user + '/.config/nekoray/config/vpn-run-root.sh') !== -1)
-        )
-      {
-        return polkit.Result.YES;
-      }
-    });
-  '';
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";

@@ -1,5 +1,6 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
 {
+  config = lib.mkIf config.modules.desktop.gnome.enable {
   # GNOME
   services.xserver = {
     enable = true;
@@ -36,5 +37,6 @@
     layout = "us,ru";
     variant = "";
     options = "grp:alt_shift_toggle";
+  };
   };
 }

@@ -40,7 +40,6 @@
     ++ lib.optionals (osConfig.usrEnv.personal) [
       # Other software
       alpaca
-      nekoray
       vesktop
 
       # Learning
