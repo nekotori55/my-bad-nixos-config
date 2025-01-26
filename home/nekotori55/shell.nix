@@ -29,12 +29,11 @@
     alacritty = {
       enable = true;
       settings = {
-        general.import = [ "${pkgs.alacritty-theme}/nord.toml" ];
+        # general.import = [ "${pkgs.alacritty-theme}/nosrd.toml" ];
         font = {
           normal = {
             family = "Hack Nerd Font Mono";
             style = "Regular";
-
           };
         };
 

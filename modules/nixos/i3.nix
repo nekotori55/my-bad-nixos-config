@@ -5,10 +5,10 @@
   ...
 }:
 {
-  config = lib.mkIf config.modules.desktop.bspwm.enable {
+  config = lib.mkIf config.modules.desktop.i3.enable {
     services.xserver = {
       enable = true;
-      # windowManager.bspwm.enable = true;
+      windowManager.i3.enable = true;
       excludePackages = [ pkgs.xterm ];
       displayManager.sddm.enable = true;
 

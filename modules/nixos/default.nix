@@ -7,5 +7,7 @@
     ./common.nix
     ./vm-host.nix
     ./vpn.nix
+    ./bspwm.nix
+    ./i3.nix
   ];
 }
