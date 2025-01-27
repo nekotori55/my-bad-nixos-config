@@ -6,6 +6,8 @@
 }:
 {
   config = lib.mkIf config.modules.desktop.i3.enable {
+    networking.networkmanager.enable = true;
+
     services.xserver = {
       enable = true;
       windowManager.i3.enable = true;

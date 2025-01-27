@@ -24,6 +24,9 @@
         };
 
         startup = [
+          {
+            command = " xrandr --output HDMI-0 --primary --mode 1920x1080 --rate 120 --right-of eDP-1-0";
+          }
           # Wallpaper (using feh)
           {
             command = "feh --bg-scale --no-fehbg ~/.wallpaper.png";

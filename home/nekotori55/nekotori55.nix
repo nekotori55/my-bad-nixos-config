@@ -51,6 +51,8 @@
       spotify
       ani-cli
       prismlauncher
+
+      tidal-hifi
     ];
 
   fonts.fontconfig.enable = true;
