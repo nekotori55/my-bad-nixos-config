@@ -7,7 +7,7 @@
 
       shellAliases = {
         sconfig = "code /etc/nixos";
-        vm = "mkdir ~/nixos-vm-current; cd ~/nixos-vm-current; rm -rf *; sudo nixos-rebuild build-vm; result/bin/run-$HOSTNAME-vm";
+        vm = "mkdir -p ~/nixos-vm-current; set CURDIR (pwd); cd ~/nixos-vm-current; rm -rf *; sudo nixos-rebuild build-vm; set HOSTNAME (cat /etc/hostname) ; result/bin/run-$HOSTNAME-vm; cd $CURDIR";
       };
 
       bashrcExtra = ''
