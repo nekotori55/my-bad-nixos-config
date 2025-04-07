@@ -8,9 +8,9 @@
 
   usrEnv.personal = true;
 
-  modules.desktop.bspwm.enable = false;
-  modules.desktop.i3.enable = true;
-  #modules.desktop.gnome.enable = true;
+  #modules.desktop.bspwm.enable = true;
+  #modules.desktop.i3.enable = true;
+  modules.desktop.gnome.enable = true;
 
   virtualisation.vmVariant = {
     modules.desktop.gnome.enable = lib.mkForce false;
