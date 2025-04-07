@@ -1,15 +1,12 @@
 {
   pkgs,
   config,
-  lib,
-  osConfig,
   ...
 }:
 let
   inherit (pkgs) gnomeExtensions;
 in
 {
-  config = lib.mkIf osConfig.modules.desktop.gnome.enable {
   programs.gnome-shell = {
     enable = true;
     autogroup-apps = true;
@@ -79,5 +76,4 @@ in
       };
     };
   };
-};
 }

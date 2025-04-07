@@ -15,6 +15,8 @@
   boot.initrd.availableKernelModules = [
     "ata_piix"
     "ohci_pci"
+    "ehci_pci"
+    "ahci"
     "sd_mod"
     "sr_mod"
   ];
@@ -23,18 +25,11 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-label/nixos";
+    device = "/dev/disk/by-uuid/30400112-17c1-4708-ab4a-abbace39874b";
     fsType = "ext4";
   };
 
-  swapDevices = [
-    {
-        device = "/dev/disk/by-label/swap";
-    }
-  ];
-
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda";
+  swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

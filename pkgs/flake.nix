@@ -93,9 +93,6 @@
               home-manager.useUserPackages = true;
               home-manager.users.nekotori55 = import ./home/nekotori55;
               home-manager.backupFileExtension = ".old";
-              home-manager.sharedModules = [
-                ./modules/home-manager
-              ];
             }
           ];
         };

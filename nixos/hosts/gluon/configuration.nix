@@ -2,31 +2,18 @@
 {
   imports = [
     ./hardware
-    ../vm/vm-specific.nix
   ];
 
   users.users = {
     nekotori55 = {
       initialPassword = "changeme";
       isNormalUser = true;
-      extraGroups = [ "wheel" ];
+      extraGroups = [ "wheel" "networkmanager" ];
     };
   };
 
-  services.xserver.displayManager.gdm.enable = true;
-
-  nix = {
-    settings = {
-      experimental-features = "nix-command flakes";
-      auto-optimise-store = true;
-    };
-
-    gc = {
-      automatic = true;
-      dates = "daily";
-      options = "--delete-older-than 15d";
-    };
-  };
+  modules.desktop.gnome.enable = false;
+  modules.desktop.i3.enable = true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
