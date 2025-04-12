@@ -14,10 +14,17 @@
 
   virtualisation.vmVariant = {
     modules.desktop.gnome.enable = lib.mkForce false;
-    modules.desktop.i3.enable = lib.mkForce true;
+    # modules.desktop.i3.enable = lib.mkForce true;
+    modules.desktop.bspwm.enable = lib.mkForce true;
+
+    # disable everything i dont need
+    modules.llm.enable = lib.mkForce false;
+    modules.docker.enable = lib.mkForce false;
+    modules.gaming.enable = lib.mkForce false;
+    modules.vpn.enable = lib.mkForce false;
   };
 
-  modules.vm-host.enable = true;
+  #modules.vm-host.enable = true;
   modules.llm.enable = true;
   modules.docker.enable = true;
   modules.gaming.enable = true;
@@ -25,7 +32,7 @@
 
   users.users = {
     nekotori55 = {
-      initialPassword = "aboba";
+      initialPassword = "123";
       isNormalUser = true;
       openssh.authorizedKeys.keys = [ ];
       extraGroups = [
