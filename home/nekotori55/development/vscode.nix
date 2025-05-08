@@ -1,32 +1,20 @@
-{
-  pkgs,
-  lib,
-  osConfig,
-  ...
-}:
-{
-  home.packages = with pkgs; [
-    nixd
-    nixfmt-rfc-style
-  ];
+{ pkgs, lib, osConfig, ... }: {
+  home.packages = with pkgs; [ nixd nixfmt-rfc-style ];
 
   programs.vscode = {
     enable = true;
     enableUpdateCheck = false;
     enableExtensionUpdateCheck = false;
     mutableExtensionsDir = true;
-    extensions =
-      with pkgs;
-      (
-        with vscode-extensions;
+    extensions = with pkgs;
+      (with vscode-extensions;
         [
           # Nix-related stuff
           mkhl.direnv
           bbenoist.nix
           jnoortheen.nix-ide
           ms-azuretools.vscode-docker
-        ]
-        ++ vscode-utils.extensionsFromVscodeMarketplace [
+        ] ++ vscode-utils.extensionsFromVscodeMarketplace [
           {
             name = "nord-deep";
             publisher = "marlosirapuan";
@@ -43,10 +31,10 @@
             name = "vscord";
             publisher = "leonardssh";
             version = "5.2.12";
-            sha256 = "5860c48b3606e9402a7b58e786f8df168b970c0f58af93fe063c4f6a1008b131";
+            sha256 =
+              "5860c48b3606e9402a7b58e786f8df168b970c0f58af93fe063c4f6a1008b131";
           }
-        ]
-      );
+        ]);
     userSettings = {
       # EDITOR SETTINGS
       "editor.formatOnSave" = true;
@@ -62,22 +50,16 @@
       "nix.serverPath" = "nixd";
       "nix.serverSettings" = {
         "nixd" = {
-          "formatting" = {
-            "command" = "nixfmt";
-          };
-          "options" = {
-            "enable" = true;
-          };
+          "formatting" = { "command" = "nixfmt"; };
+          "options" = { "enable" = true; };
         };
       };
       "python.defaultInterpreterPath" = "\${env:PYTHONPATH}";
-      "auto-run-command.rules" = [
-        {
-          "condition" = [ "always" ];
-          "command" = "python.clearWorkspaceInterpreter";
-          "message" = "Super condition met. Running";
-        }
-      ];
+      "auto-run-command.rules" = [{
+        "condition" = [ "always" ];
+        "command" = "python.clearWorkspaceInterpreter";
+        "message" = "Super condition met. Running";
+      }];
       "direnv.restart.automatic" = true;
       "vscord.behaviour.suppressNotifications" = true;
     };

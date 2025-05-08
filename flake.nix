@@ -1,5 +1,5 @@
 {
-  description = "Your new nix config";
+  description = "I want to rewrite";
 
   inputs = {
     # Nixpkgs
@@ -86,9 +86,6 @@
 
             home-manager.nixosModules.home-manager
             {
-              home-manager.extraSpecialArgs = {
-                inherit inputs outputs;
-              };
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.nekotori55 = import ./home/nekotori55;

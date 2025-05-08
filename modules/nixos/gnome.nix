@@ -17,6 +17,7 @@
     environment.systemPackages = with pkgs; [
       gnome-tweaks
       gnome-boxes
+      nautilus
     ];
 
     services.gnome = {

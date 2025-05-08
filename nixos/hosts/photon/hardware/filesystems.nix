@@ -17,8 +17,8 @@
     device = "/dev/disk/by-uuid/D24E302A4E300A2D";
     fsType = "ntfs";
     options = [
-      "uid=1000"
-      "gid=1000"
+      "uid=1001"
+      "gid=1001"
       "dmask=007"
       "fmask=027"
     ];
